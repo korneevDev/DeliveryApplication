@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="github.mik0war.deliveryapp.feature.category.presentation.HomeFragment"
+        android:name="github.mik0war.deliveryapp.feature.category.presentation.CategoryListFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_category_list" />
 
     <fragment
         android:id="@+id/navigation_search"

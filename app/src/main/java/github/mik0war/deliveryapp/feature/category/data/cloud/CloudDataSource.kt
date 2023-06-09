@@ -1,9 +1,9 @@
 package github.mik0war.deliveryapp.feature.category.data.cloud
 
+import android.util.Log
 import github.mik0war.deliveryapp.feature.category.core.CategoryMapper
-import github.mik0war.deliveryapp.feature.category.data.CategoryDataModel
 import github.mik0war.deliveryapp.feature.category.core.NoConnectionException
-import github.mik0war.deliveryapp.feature.category.core.ServiceUnavailableException
+import github.mik0war.deliveryapp.feature.category.data.CategoryDataModel
 import java.net.UnknownHostException
 import javax.inject.Inject
 
@@ -22,7 +22,7 @@ interface CloudDataSource{
             } catch (e: Exception) {
                 throw if (e is UnknownHostException)
                     NoConnectionException()
-                else ServiceUnavailableException()
+                else e.also { Log.e("kek", e.message?:"") }
             }
     }
 }

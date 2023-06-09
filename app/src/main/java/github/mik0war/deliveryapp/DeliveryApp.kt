@@ -1,12 +1,11 @@
 package github.mik0war.deliveryapp
 
 import android.app.Application
-import com.google.gson.Gson
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import github.mik0war.deliveryapp.feature.category.di.CategoryComponent
+import github.mik0war.deliveryapp.feature.category.di.DaggerCategoryComponent
 
 class DeliveryApp: Application() {
-    override fun onCreate() {
-        super.onCreate()
+    val appComponent: CategoryComponent by lazy {
+        DaggerCategoryComponent.factory().create(this)
     }
 }
