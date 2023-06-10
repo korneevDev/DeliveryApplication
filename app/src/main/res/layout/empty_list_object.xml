@@ -3,22 +3,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal">
+    android:orientation="vertical">
 
-    <github.mik0war.deliveryapp.feature.category.presentation.CustomTextView
+    <github.mik0war.deliveryapp.feature.internetData.core.presentation.CustomTextView
         android:id="@+id/categoryName"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         tools:text="error message"
         android:gravity="center"
         android:textSize="30sp"/>
 
-    <github.mik0war.deliveryapp.feature.category.presentation.CustomTextView
-        android:id="@+id/imageName"
+    <Button
+        android:id="@+id/reloadButton"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:text="error message"
-        android:gravity="center"
-        android:textSize="30sp"/>
+        android:layout_height="wrap_content"
+        android:text="@string/reload"/>
 
 </LinearLayout>

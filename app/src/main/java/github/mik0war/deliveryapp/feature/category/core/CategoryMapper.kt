@@ -1,5 +1,0 @@
-package github.mik0war.deliveryapp.feature.category.core
-
-interface CategoryMapper<T> {
-    fun map(id: Int, name: String, imageUrl: String): T
-}

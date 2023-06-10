@@ -7,17 +7,21 @@ import github.mik0war.deliveryapp.feature.internetData.category.data.cloud.Categ
 import github.mik0war.deliveryapp.feature.internetData.category.data.cloud.TestCategoryService
 import github.mik0war.deliveryapp.feature.internetData.core.core.NoConnectionException
 import github.mik0war.deliveryapp.feature.internetData.core.core.ServiceUnavailableException
+import github.mik0war.deliveryapp.feature.internetData.core.data.InternetDataRepositoryImpl
+import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.runTest
-import org.junit.Assert.assertEquals
+import org.junit.Assert
 import org.junit.Test
 
-class CloudDataSourceTest {
-
+class InternetDataRepositoryImplTest {
     @Test
-    fun get_categories_test() = runTest {
-        val cloudDataSource = CategoryCloudDataSource(
-            TestCategoryService(),
-            DataModelMapper(MapperToCategoryDataModel())
+    fun `get categories test`() = runTest {
+        val repository = InternetDataRepositoryImpl(
+            CategoryCloudDataSource(
+                TestCategoryService(),
+                DataModelMapper(MapperToCategoryDataModel())
+            ),
+            StandardTestDispatcher(testScheduler)
         )
 
         val expected =
@@ -29,20 +33,21 @@ class CloudDataSourceTest {
             )
 
 
-        val actual = cloudDataSource.getCategories()
+        val actual = repository.getCategoryList()
 
-        assertEquals(expected, actual)
+        Assert.assertEquals(expected, actual)
 
         try {
-            cloudDataSource.getCategories()
+            repository.getCategoryList()
         } catch(e: Exception){
             assert(e is NoConnectionException)
         }
 
         try {
-            cloudDataSource.getCategories()
+            repository.getCategoryList()
         } catch(e: Exception){
             assert(e is ServiceUnavailableException)
         }
     }
 }
+

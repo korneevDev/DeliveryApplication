@@ -1,26 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/linearLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
-    <github.mik0war.deliveryapp.feature.category.presentation.CustomTextView
+    <github.mik0war.deliveryapp.feature.internetData.core.presentation.CustomTextView
         android:id="@+id/categoryName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
-        android:textSize="20sp"
-        tools:text="item name"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        android:elevation="4dp"
         android:fontFamily=""
-        />
-
-    <github.mik0war.deliveryapp.feature.category.presentation.CustomTextView
-        android:id="@+id/imageName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:textSize="20sp"
-        tools:text="item name"
-        />
+        app:layout_constraintStart_toStartOf="@id/imageHolder"
+        app:layout_constraintTop_toTopOf="@id/imageHolder" />
 
-</LinearLayout>
+    <ImageView
+        android:id="@+id/imageHolder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/default_missing_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@id/imageHolder"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
