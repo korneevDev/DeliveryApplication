@@ -1,10 +1,10 @@
-package github.mik0war.deliveryapp.feature.shoppingCart.fillShoppingCart.data
+package github.mik0war.deliveryapp.feature.shoppingCart.fill.data
 
 import github.mik0war.deliveryapp.di.IODispatcher
 import github.mik0war.deliveryapp.entity.DataMapper
 import github.mik0war.deliveryapp.entity.Entity
-import github.mik0war.deliveryapp.feature.shoppingCart.fillShoppingCart.data.cache.CacheDataSource
-import github.mik0war.deliveryapp.feature.shoppingCart.fillShoppingCart.domain.Repository
+import github.mik0war.deliveryapp.feature.shoppingCart.fill.data.cache.CacheDataSource
+import github.mik0war.deliveryapp.feature.shoppingCart.fill.domain.Repository
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
 

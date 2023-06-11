@@ -35,29 +35,36 @@ class CategoryListFragment : Fragment() {
                 it.getString(FRAGMENT_NAME_KEY)
         }
 
-        val onSuccessClickListener: (name: String) -> Unit = { string ->
-            val bundle = Bundle().also { it.putString(FRAGMENT_NAME_KEY, string) }
-            findNavController().navigate(R.id.action_navigation_home_to_navigation_dish, bundle)
-        }
-
-        val adapter = CategoryRecyclerViewAdapter(
-            categoryViewModel,
-            ImageLoader.Base(),
-            onSuccessClickListener
-        ){
-            categoryViewModel.getCategoryList()
-        }
-
-        categoryViewModel.observe(this) {
-            adapter.update()
-        }
-
-        view.findViewById<RecyclerView>(R.id.objectList).adapter = adapter
+        view.findViewById<RecyclerView>(R.id.objectList).adapter = setupAdapter()
 
         categoryViewModel.getCategoryList()
     }
 
     companion object{
         const val FRAGMENT_NAME_KEY = "FRAGMENT_KEY"
+    }
+
+    private fun setupAdapter(): CategoryRecyclerViewAdapter{
+        val adapter = CategoryRecyclerViewAdapter(
+            categoryViewModel,
+            ImageLoader.Base(),
+        )
+
+        val onSuccessClickListener: (name: String) -> Unit = { string ->
+            val bundle = Bundle().also { it.putString(FRAGMENT_NAME_KEY, string) }
+            findNavController().navigate(R.id.action_navigation_home_to_navigation_dish, bundle)
+        }
+        val onErrorClockListener: () -> Unit = {
+            categoryViewModel.getCategoryList()
+        }
+
+        adapter.onSuccessClickListener = onSuccessClickListener
+        adapter.onErrorClickListener = onErrorClockListener
+
+        categoryViewModel.observe(this) {
+            adapter.update()
+        }
+
+        return adapter
     }
 }

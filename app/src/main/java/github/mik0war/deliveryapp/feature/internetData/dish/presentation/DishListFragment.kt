@@ -37,24 +37,32 @@ class DishListFragment : Fragment() {
         }
         (requireActivity() as MainActivity).setBottomNavigationViewItemSelected(R.id.navigation_home)
 
+        val recyclerView = view.findViewById<RecyclerView>(R.id.objectList)
+
+        recyclerView.adapter = setupAdapter()
+        recyclerView.layoutManager = GridLayoutManager(requireContext(), 3)
+
+        dishViewModel.getCategoryList()
+    }
+    private fun setupAdapter(): DishRecyclerViewAdapter{
         val onSuccessClickListener: (name: String) -> Unit = { string ->
             val bundle = Bundle().also { it.putString(FRAGMENT_NAME_KEY, string) }
             findNavController().navigate(R.id.action_navigation_dish_to_navigation_home, bundle)
         }
 
-        val adapter = DishRecyclerViewAdapter(dishViewModel, ImageLoader.Base(), onSuccessClickListener){
+        val onErrorClickListener: () -> Unit = {
             dishViewModel.getCategoryList()
         }
+
+        val adapter = DishRecyclerViewAdapter(dishViewModel, ImageLoader.Base())
+
+        adapter.onSuccessClickListener = onSuccessClickListener
+        adapter.onErrorClickListener = onErrorClickListener
 
         dishViewModel.observe(this) {
             adapter.update()
         }
 
-        val recyclerView = view.findViewById<RecyclerView>(R.id.objectList)
-        recyclerView.adapter = adapter
-
-        recyclerView.layoutManager = GridLayoutManager(requireContext(), 3)
-
-        dishViewModel.getCategoryList()
+        return adapter
     }
 }

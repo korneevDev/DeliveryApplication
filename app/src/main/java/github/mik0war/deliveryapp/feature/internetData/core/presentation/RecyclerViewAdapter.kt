@@ -13,10 +13,10 @@ import github.mik0war.deliveryapp.entity.UIEntity
 abstract class RecyclerViewAdapter<T: UIEntity<T>>(
     private val internetDataLiveData: GetList<T>,
     private val imageLoader: ImageLoader,
-    private val onSuccessClickListener: (name: String) -> Unit,
-    private val onErrorClickListener: (name: String) -> Unit
 ) : RecyclerView.Adapter<ViewHolder<T>>() {
 
+    var onSuccessClickListener: (name: String) -> Unit = {}
+    var onErrorClickListener: () -> Unit = {}
     fun update() {
         val diffResult = internetDataLiveData.getDiffUtilResult()
         diffResult.dispatchUpdatesTo(this)
@@ -50,33 +50,41 @@ abstract class RecyclerViewAdapter<T: UIEntity<T>>(
 }
 
 abstract class ViewHolder<T: UIEntity<T>>(
-    view: View,
-    private val onObjectClickListener: (name: String) -> Unit
+    view: View
 ) : RecyclerView.ViewHolder(view) {
     private val nameView: CustomTextView =
         itemView.findViewById(R.id.objectName)
-    private val `object`: ConstraintLayout = itemView.findViewById(R.id.objectLayout)
+    protected val `object`: ConstraintLayout = itemView.findViewById(R.id.objectLayout)
     open fun bind(uiModel: T){
         uiModel.show(nameView)
-        `object`.setOnClickListener{
-            onObjectClickListener.invoke(uiModel.getFragmentName())
-        }
     }
 
 
     class Success<T: UIEntity<T>>(
         private val imageLoader: ImageLoader,
         view: View,
-        onClickListener: (name: String) -> Unit
-    ) : ViewHolder<T>(view, onClickListener) {
+        private val onClickListener: (name: String) -> Unit
+    ) : ViewHolder<T>(view) {
         private val imageView = itemView.findViewById<ImageView>(R.id.imageHolder)
         override fun bind(uiModel: T) {
             super.bind(uiModel)
             imageLoader.loadImage(uiModel.getUrl(), imageView)
+
+            `object`.setOnClickListener{
+                onClickListener.invoke(uiModel.getFragmentName())
+            }
         }
     }
 
-    class Error<T: UIEntity<T>>(view: View,
-                                reloadListener: (name: String) -> Unit
-    ) : ViewHolder<T>(view, reloadListener)
+    class Error<T: UIEntity<T>>(
+        view: View,
+        private val reloadListener: () -> Unit
+    ) : ViewHolder<T>(view){
+        override fun bind(uiModel: T) {
+            super.bind(uiModel)
+            `object`.setOnClickListener{
+                reloadListener.invoke()
+            }
+        }
+    }
 }

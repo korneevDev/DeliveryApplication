@@ -1,4 +1,4 @@
-package github.mik0war.deliveryapp.feature.shoppingCart.fillShoppingCart.domain
+package github.mik0war.deliveryapp.feature.shoppingCart.fill.domain
 
 import github.mik0war.deliveryapp.entity.DataMapper
 import github.mik0war.deliveryapp.entity.Entity
