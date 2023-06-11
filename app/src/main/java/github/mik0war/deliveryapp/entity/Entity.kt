@@ -1,7 +1,6 @@
 package github.mik0war.deliveryapp.entity
 
 import github.mik0war.deliveryapp.entity.mapper.Mapper
-import github.mik0war.deliveryapp.feature.internetData.core.presentation.CustomTextView
 
 interface Entity {
     fun<R: Mapper<T>, T> map(mapper: R): T

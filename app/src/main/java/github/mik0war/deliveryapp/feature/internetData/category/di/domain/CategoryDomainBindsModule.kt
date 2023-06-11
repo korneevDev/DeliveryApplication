@@ -7,7 +7,7 @@ import github.mik0war.deliveryapp.entity.category.Category
 import github.mik0war.deliveryapp.feature.internetData.category.domain.CategoryExceptionHandler
 import github.mik0war.deliveryapp.entity.StringResourceProvider
 import github.mik0war.deliveryapp.feature.internetData.core.data.InternetDataRepositoryImpl
-import github.mik0war.deliveryapp.feature.internetData.core.domain.ExceptionHandler
+import github.mik0war.deliveryapp.entity.ExceptionHandler
 import github.mik0war.deliveryapp.feature.internetData.core.domain.InternetDataInteractor
 import github.mik0war.deliveryapp.feature.internetData.core.domain.InternetDataRepository
 

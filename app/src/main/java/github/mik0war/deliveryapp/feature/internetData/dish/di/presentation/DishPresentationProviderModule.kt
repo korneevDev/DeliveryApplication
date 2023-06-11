@@ -2,7 +2,7 @@ package github.mik0war.deliveryapp.feature.internetData.dish.di.presentation
 
 import dagger.Module
 import dagger.Provides
-import github.mik0war.deliveryapp.entity.InternetDataMapper
+import github.mik0war.deliveryapp.entity.DataMapper
 import github.mik0war.deliveryapp.entity.mapper.DishMapper
 import github.mik0war.deliveryapp.entity.dish.Dish
 import github.mik0war.deliveryapp.entity.dish.DishUIModel
@@ -12,7 +12,7 @@ class DishPresentationProviderModule {
 
     @Provides
     fun provideMapperToUI(mapper: DishMapper<DishUIModel>) =
-        object : InternetDataMapper<Dish, DishUIModel> {
+        object : DataMapper<Dish, DishUIModel> {
             override fun map(dataObject: Dish): DishUIModel =
                 dataObject.map(mapper)
         }

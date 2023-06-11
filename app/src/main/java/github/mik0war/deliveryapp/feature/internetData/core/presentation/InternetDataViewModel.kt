@@ -5,7 +5,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import github.mik0war.deliveryapp.entity.Entity
-import github.mik0war.deliveryapp.entity.InternetDataMapper
+import github.mik0war.deliveryapp.entity.DataMapper
 import github.mik0war.deliveryapp.entity.UIEntity
 import github.mik0war.deliveryapp.di.MainDispatcher
 import github.mik0war.deliveryapp.feature.internetData.core.domain.InternetDataInteractor
@@ -20,7 +20,7 @@ interface InternetDataViewModel<T> : ObserveLiveData<List<T>>, GetList<T> {
     class Base<S: Entity, R: UIEntity<R>> @Inject constructor(
         private val interactor: InternetDataInteractor<S>,
         private val liveData: InternetDataLiveData<R>,
-        private val mapper: InternetDataMapper<S, R>,
+        private val mapper: DataMapper<S, R>,
         @MainDispatcher private val dispatcher: CoroutineDispatcher
     ): ViewModel(), InternetDataViewModel<R> {
         override fun getCategoryList() =

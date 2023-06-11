@@ -6,7 +6,7 @@ import github.mik0war.deliveryapp.entity.mapper.CategoryMapper
 import github.mik0war.deliveryapp.entity.category.CategoryDataModel
 import github.mik0war.deliveryapp.feature.internetData.category.data.CategoryServerModel
 import github.mik0war.deliveryapp.feature.internetData.category.data.CategoryService
-import github.mik0war.deliveryapp.entity.InternetDataMapper
+import github.mik0war.deliveryapp.entity.DataMapper
 import retrofit2.Retrofit
 
 @Module
@@ -17,7 +17,7 @@ class CategoryDataProviderModule {
 
     @Provides
     fun provideDataMapper(mapper: CategoryMapper<CategoryDataModel>) =
-        object : InternetDataMapper<CategoryServerModel, CategoryDataModel> {
+        object : DataMapper<CategoryServerModel, CategoryDataModel> {
             override fun map(dataObject: CategoryServerModel): CategoryDataModel =
                 dataObject.map(mapper)
         }

@@ -5,14 +5,14 @@ import dagger.Provides
 import github.mik0war.deliveryapp.entity.mapper.CategoryMapper
 import github.mik0war.deliveryapp.entity.category.Category
 import github.mik0war.deliveryapp.entity.category.CategoryUIModel
-import github.mik0war.deliveryapp.entity.InternetDataMapper
+import github.mik0war.deliveryapp.entity.DataMapper
 
 @Module
 class CategoryPresentationProviderModule {
 
     @Provides
     fun provideMapperToUI(mapper: CategoryMapper<CategoryUIModel>) =
-        object : InternetDataMapper<Category, CategoryUIModel> {
+        object : DataMapper<Category, CategoryUIModel> {
             override fun map(dataObject: Category): CategoryUIModel =
                 dataObject.map(mapper)
         }

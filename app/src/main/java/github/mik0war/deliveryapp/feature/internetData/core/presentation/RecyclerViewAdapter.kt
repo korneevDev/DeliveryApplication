@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import github.mik0war.deliveryapp.R
+import github.mik0war.deliveryapp.entity.CustomTextView
 import github.mik0war.deliveryapp.entity.UIEntity
 
 abstract class RecyclerViewAdapter<T: UIEntity<T>>(

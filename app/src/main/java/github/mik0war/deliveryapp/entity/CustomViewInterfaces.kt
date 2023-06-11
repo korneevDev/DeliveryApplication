@@ -1,4 +1,4 @@
-package github.mik0war.deliveryapp.feature.internetData.core.presentation
+package github.mik0war.deliveryapp.entity
 
 interface CustomViewInterface<T>{
     fun set(content: T)

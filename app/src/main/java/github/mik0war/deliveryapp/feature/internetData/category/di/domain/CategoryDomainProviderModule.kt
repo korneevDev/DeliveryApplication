@@ -5,7 +5,7 @@ import dagger.Provides
 import github.mik0war.deliveryapp.entity.category.CategoryDataModel
 import github.mik0war.deliveryapp.entity.category.Category
 import github.mik0war.deliveryapp.entity.mapper.CategoryMapper
-import github.mik0war.deliveryapp.entity.InternetDataMapper
+import github.mik0war.deliveryapp.entity.DataMapper
 
 @Module
 class CategoryDomainProviderModule {
@@ -13,7 +13,7 @@ class CategoryDomainProviderModule {
     @Provides
     fun provideCategoryDataMapper(
         mapper: CategoryMapper<Category>
-    ) = object : InternetDataMapper<CategoryDataModel, Category> {
+    ) = object : DataMapper<CategoryDataModel, Category> {
         override fun map(dataObject: CategoryDataModel): Category = dataObject.map(mapper)
     }
 

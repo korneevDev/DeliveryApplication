@@ -5,7 +5,7 @@ import github.mik0war.deliveryapp.entity.category.Category
 import github.mik0war.deliveryapp.entity.NoConnectionException
 import github.mik0war.deliveryapp.entity.ServiceUnavailableException
 import github.mik0war.deliveryapp.entity.StringResourceProvider
-import github.mik0war.deliveryapp.feature.internetData.core.domain.ExceptionHandler
+import github.mik0war.deliveryapp.entity.ExceptionHandler
 import javax.inject.Inject
 
 class CategoryExceptionHandler @Inject constructor(
