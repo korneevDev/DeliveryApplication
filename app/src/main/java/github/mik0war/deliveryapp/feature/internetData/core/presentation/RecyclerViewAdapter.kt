@@ -53,7 +53,7 @@ abstract class ViewHolder<T: UIEntity<T>>(
     view: View
 ) : RecyclerView.ViewHolder(view) {
     private val nameView: CustomTextView =
-        itemView.findViewById(R.id.categoryName)
+        itemView.findViewById(R.id.objectName)
 
     open fun bind(uiModel: T): Unit =
         uiModel.show(nameView)
@@ -66,7 +66,7 @@ abstract class ViewHolder<T: UIEntity<T>>(
         private val imageView = itemView.findViewById<ImageView>(R.id.imageHolder)
         override fun bind(uiModel: T) {
             super.bind(uiModel)
-            imageLoader.loadImage(uiModel.getImageUrl(), imageView)
+            imageLoader.loadImage(uiModel.getUrl(), imageView)
         }
     }
 

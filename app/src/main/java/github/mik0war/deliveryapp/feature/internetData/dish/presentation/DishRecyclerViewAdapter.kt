@@ -12,5 +12,5 @@ class DishRecyclerViewAdapter(
     recycleButtonListener: () -> Unit
 ) : RecyclerViewAdapter<DishUIModel>(internetDataLiveData, imageLoader, recycleButtonListener) {
     override fun errorClass(model: DishUIModel) = model is DishUIModel.Error
-    override fun getSuccessLayout() = R.layout.category_object
+    override fun getSuccessLayout() = R.layout.dish_object
 }

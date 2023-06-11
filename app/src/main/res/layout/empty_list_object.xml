@@ -6,7 +6,7 @@
     android:orientation="vertical">
 
     <github.mik0war.deliveryapp.entity.CustomTextView
-        android:id="@+id/categoryName"
+        android:id="@+id/objectName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:text="error message"

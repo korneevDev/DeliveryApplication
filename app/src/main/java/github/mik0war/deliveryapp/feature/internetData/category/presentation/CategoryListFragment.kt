@@ -22,7 +22,7 @@ class CategoryListFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View = inflater.inflate(R.layout.fragment_category_list, container, false)
+    ): View = inflater.inflate(R.layout.fragment_list_layout, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         ((requireActivity() as MainActivity).application as DeliveryApp)
@@ -37,7 +37,7 @@ class CategoryListFragment : Fragment() {
             adapter.update()
         }
 
-        view.findViewById<RecyclerView>(R.id.categoryList).adapter = adapter
+        view.findViewById<RecyclerView>(R.id.objectList).adapter = adapter
 
         categoryViewModel.getCategoryList()
     }

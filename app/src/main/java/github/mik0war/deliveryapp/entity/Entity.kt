@@ -8,7 +8,7 @@ interface Entity {
 
 interface UIEntity<T> : Entity {
     fun equalsId(other: T): Boolean
-    fun getImageUrl(): String
+    fun getUrl(): String
 
     fun show(nameView: CustomTextView)
 }

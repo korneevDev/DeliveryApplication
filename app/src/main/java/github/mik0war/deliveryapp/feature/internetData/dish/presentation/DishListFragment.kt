@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import github.mik0war.deliveryapp.DeliveryApp
 import github.mik0war.deliveryapp.MainActivity
@@ -21,7 +22,7 @@ class DishListFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View = inflater.inflate(R.layout.fragment_category_list, container, false)
+    ): View = inflater.inflate(R.layout.fragment_list_layout, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         ((requireActivity() as MainActivity).application as DeliveryApp)
@@ -35,8 +36,10 @@ class DishListFragment : Fragment() {
         dishViewModel.observe(this) {
             adapter.update()
         }
+        val recyclerView = view.findViewById<RecyclerView>(R.id.objectList)
+        recyclerView.adapter = adapter
 
-        view.findViewById<RecyclerView>(R.id.categoryList).adapter = adapter
+        recyclerView.layoutManager = GridLayoutManager(requireContext(), 3)
 
         dishViewModel.getCategoryList()
     }

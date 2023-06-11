@@ -15,7 +15,7 @@ sealed class DishUIModel(
     UIEntity<DishUIModel> {
     override fun equalsId(other: DishUIModel) = false
 
-    override fun getImageUrl() = image_url
+    override fun getUrl() = image_url
 
     override fun show(nameView: CustomTextView) {
         nameView.set(name)
@@ -38,6 +38,6 @@ sealed class DishUIModel(
     class Error(
         failureMessage: String
     ): DishUIModel(name=failureMessage) {
-        override fun getImageUrl(): String = throw IllegalStateException()
+        override fun getUrl(): String = throw IllegalStateException()
     }
 }

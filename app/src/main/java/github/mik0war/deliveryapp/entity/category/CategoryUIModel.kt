@@ -13,7 +13,7 @@ sealed class CategoryUIModel(
     override fun show(nameView: CustomTextView) {
         nameView.set(name)
     }
-    override fun getImageUrl() = imageUrl
+    override fun getUrl() = imageUrl
     class Success(
         id: Int,
         name: String,
@@ -29,6 +29,6 @@ sealed class CategoryUIModel(
     class Error(
         failureMessage: String
     ): CategoryUIModel(name = failureMessage) {
-        override fun getImageUrl(): String = throw IllegalStateException()
+        override fun getUrl(): String = throw IllegalStateException()
     }
 }
