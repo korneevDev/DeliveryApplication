@@ -3,12 +3,11 @@ package github.mik0war.deliveryapp.feature.internetData.category.presentation
 import github.mik0war.deliveryapp.feature.internetData.category.core.CategoryMapper
 import github.mik0war.deliveryapp.feature.internetData.core.core.UIEntity
 import github.mik0war.deliveryapp.feature.internetData.core.presentation.CustomTextView
-import javax.inject.Inject
 
 sealed class CategoryUIModel : UIEntity<CategoryUIModel> {
     override fun equalsId(other: CategoryUIModel) = false
 
-    open fun getURL(): String = throw IllegalStateException()
+    override fun getImageUrl(): String = throw IllegalStateException()
 
     data class Success(
         private val id: Int,
@@ -19,28 +18,22 @@ sealed class CategoryUIModel : UIEntity<CategoryUIModel> {
         override fun equalsId(other: CategoryUIModel)
             = other is Success && other.id == this.id
 
-        override fun <T> map(mapper: CategoryMapper<T>) = mapper.map(id, name, imageUrl)
+        override fun getImageUrl() = imageUrl
+        override fun show(nameView: CustomTextView) {
+            nameView.set(name)
+        }
 
-        override fun getURL() = imageUrl
+        override fun <R, T> map(mapper: R): T = (mapper as CategoryMapper<T>).map(id, name, imageUrl)
     }
 
 
     class Error(
         private val failureMessage: String
     ): CategoryUIModel() {
-        override fun <T> map(mapper: CategoryMapper<T>) = mapper.map(0, failureMessage, "")
-    }
-}
+        override fun show(nameView: CustomTextView) {
+            nameView.set(failureMessage)
+        }
 
-class MapperToUIModel @Inject constructor(): CategoryMapper<CategoryUIModel> {
-    override fun map(id: Int, name: String, imageUrl: String) =
-        CategoryUIModel.Success(id, name, imageUrl)
-}
-
-class MapperToUI(
-    private val headerView: CustomTextView
-) : CategoryMapper<Unit> {
-    override fun map(id: Int, name: String, imageUrl: String) {
-        headerView.set(name)
+        override fun <R, T> map(mapper: R): T = (mapper as CategoryMapper<T>).map(0, failureMessage, "")
     }
 }

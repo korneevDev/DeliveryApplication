@@ -12,5 +12,4 @@ class CategoryCloudDataSource @Inject constructor(
 
     override suspend fun getDataFromCloud() =
         categoryService.getListObject().getList().map { mapper.map(it) }
-
 }

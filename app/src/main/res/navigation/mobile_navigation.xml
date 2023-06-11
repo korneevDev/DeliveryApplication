@@ -10,10 +10,15 @@
         android:name="github.mik0war.deliveryapp.feature.internetData.category.presentation.CategoryListFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_category_list" />
+    <fragment
+        android:id="@+id/navigation_dish"
+        android:name="github.mik0war.deliveryapp.feature.internetData.dish.presentation.DishListFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_category_list" />
 
     <fragment
         android:id="@+id/navigation_search"
-        android:name="github.mik0war.deliveryapp.presentation.dashboard.DashboardFragment"
+        android:name="github.mik0war.deliveryapp.feature.internetData.dish.presentation.DishListFragment"
         android:label="@string/title_search"
         tools:layout="@layout/fragment_dashboard" />
 

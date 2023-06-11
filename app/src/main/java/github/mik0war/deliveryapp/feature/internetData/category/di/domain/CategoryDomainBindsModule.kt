@@ -5,16 +5,14 @@ import dagger.Module
 import github.mik0war.deliveryapp.feature.internetData.category.data.CategoryDataModel
 import github.mik0war.deliveryapp.feature.internetData.category.domain.Category
 import github.mik0war.deliveryapp.feature.internetData.category.domain.CategoryExceptionHandler
-import github.mik0war.deliveryapp.feature.internetData.category.domain.MapperToCategory
-import github.mik0war.deliveryapp.feature.internetData.category.core.CategoryMapper
 import github.mik0war.deliveryapp.feature.internetData.core.core.StringResourceProvider
 import github.mik0war.deliveryapp.feature.internetData.core.data.InternetDataRepositoryImpl
+import github.mik0war.deliveryapp.feature.internetData.core.domain.ExceptionHandler
 import github.mik0war.deliveryapp.feature.internetData.core.domain.InternetDataInteractor
 import github.mik0war.deliveryapp.feature.internetData.core.domain.InternetDataRepository
-import github.mik0war.deliveryapp.feature.internetData.core.domain.ExceptionHandler
 
 @Module
-abstract class DomainBaseModule {
+abstract class CategoryDomainBindsModule {
     @Binds
     abstract fun bindRepository(
         repository: InternetDataRepositoryImpl<CategoryDataModel>
@@ -34,7 +32,4 @@ abstract class DomainBaseModule {
     abstract fun bindStringResourceManager(
         stringResourceProvider: StringResourceProvider.Base
     ): StringResourceProvider
-
-    @Binds
-    abstract fun bindMapper(mapper: MapperToCategory): CategoryMapper<Category>
 }

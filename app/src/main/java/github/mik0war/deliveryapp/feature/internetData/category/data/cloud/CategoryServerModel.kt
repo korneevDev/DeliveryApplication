@@ -19,5 +19,5 @@ data class CategoryServerModel(
     @SerializedName("image_url")
     private val imageUrl: String
 ) : Entity {
-    override fun<T> map(mapper: CategoryMapper<T>) = mapper.map(id, name, imageUrl)
+    override fun <R, T> map(mapper: R): T = (mapper as CategoryMapper<T>).map(id, name, imageUrl)
 }

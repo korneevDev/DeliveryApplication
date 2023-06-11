@@ -1,4 +1,4 @@
-package github.mik0war.deliveryapp.feature.internetData.category.presentation
+package github.mik0war.deliveryapp.feature.internetData.dish.presentation
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,10 +13,9 @@ import github.mik0war.deliveryapp.feature.internetData.core.presentation.ImageLo
 import github.mik0war.deliveryapp.feature.internetData.core.presentation.InternetDataViewModel
 import javax.inject.Inject
 
-class CategoryListFragment : Fragment() {
-
+class DishListFragment : Fragment() {
     @Inject
-    lateinit var categoryViewModel: InternetDataViewModel<CategoryUIModel>
+    lateinit var dishViewModel: InternetDataViewModel<DishUIModel>
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -25,19 +24,19 @@ class CategoryListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         ((requireActivity() as MainActivity).application as DeliveryApp)
-            .appComponent.categorySubComponent().create().inject(this)
+            .appComponent.dishSubComponent().create().inject(this)
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter = CategoryRecyclerViewAdapter(categoryViewModel, ImageLoader.Base()){
-            categoryViewModel.getCategoryList()
+        val adapter = DishRecyclerViewAdapter(dishViewModel, ImageLoader.Base()){
+            dishViewModel.getCategoryList()
         }
 
-        categoryViewModel.observe(this) {
+        dishViewModel.observe(this) {
             adapter.update()
         }
 
         view.findViewById<RecyclerView>(R.id.categoryList).adapter = adapter
 
-        categoryViewModel.getCategoryList()
+        dishViewModel.getCategoryList()
     }
 }
