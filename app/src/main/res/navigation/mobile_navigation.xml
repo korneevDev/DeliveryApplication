@@ -9,12 +9,20 @@
         android:id="@+id/navigation_home"
         android:name="github.mik0war.deliveryapp.feature.internetData.category.presentation.CategoryListFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_list_layout" />
+        tools:layout="@layout/fragment_list_layout" >
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_dish"
+            app:destination="@id/navigation_dish" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_dish"
         android:name="github.mik0war.deliveryapp.feature.internetData.dish.presentation.DishListFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_list_layout" />
+        tools:layout="@layout/fragment_list_layout" >
+        <action
+            android:id="@+id/action_navigation_dish_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_cart"

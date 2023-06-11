@@ -10,4 +10,6 @@
     <string name="error_message_no_connection">Нет подключения к интернету</string>
     <string name="error_message_unknown_error">Неизвестная ошибка</string>
     <string name="reload">Перезагрузить</string>
+    <string name="descriptionCategoryImageView">Категория блюд</string>
+    <string name="descriptionDishImageView">Картинка блюда</string>
 </resources>

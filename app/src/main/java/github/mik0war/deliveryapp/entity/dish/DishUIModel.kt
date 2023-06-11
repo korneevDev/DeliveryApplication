@@ -20,6 +20,9 @@ sealed class DishUIModel(
     override fun show(nameView: CustomTextView) {
         nameView.set(name)
     }
+
+    override fun getFragmentName(): String = name
+
     class Success(
         id: Int,
         name: String,

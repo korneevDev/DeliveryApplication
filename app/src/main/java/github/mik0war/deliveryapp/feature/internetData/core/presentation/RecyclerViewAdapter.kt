@@ -3,8 +3,8 @@ package github.mik0war.deliveryapp.feature.internetData.core.presentation
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import github.mik0war.deliveryapp.R
 import github.mik0war.deliveryapp.entity.CustomTextView
@@ -13,8 +13,8 @@ import github.mik0war.deliveryapp.entity.UIEntity
 abstract class RecyclerViewAdapter<T: UIEntity<T>>(
     private val internetDataLiveData: GetList<T>,
     private val imageLoader: ImageLoader,
-//    private val onClickListener: (name: String) -> Unit,
-    private val recycleButtonListener: () -> Unit
+    private val onSuccessClickListener: (name: String) -> Unit,
+    private val onErrorClickListener: (name: String) -> Unit
 ) : RecyclerView.Adapter<ViewHolder<T>>() {
 
     fun update() {
@@ -35,8 +35,8 @@ abstract class RecyclerViewAdapter<T: UIEntity<T>>(
         val view = LayoutInflater.from(parent.context).inflate(layout, parent, false)
 
         return if (emptyList)
-            ViewHolder.Error(view, recycleButtonListener)
-        else ViewHolder.Success(imageLoader, view)
+            ViewHolder.Error(view, onErrorClickListener)
+        else ViewHolder.Success(imageLoader, view, onSuccessClickListener)
     }
 
     override fun getItemCount() = internetDataLiveData.getList().size
@@ -50,19 +50,25 @@ abstract class RecyclerViewAdapter<T: UIEntity<T>>(
 }
 
 abstract class ViewHolder<T: UIEntity<T>>(
-    view: View
+    view: View,
+    private val onObjectClickListener: (name: String) -> Unit
 ) : RecyclerView.ViewHolder(view) {
     private val nameView: CustomTextView =
         itemView.findViewById(R.id.objectName)
-
-    open fun bind(uiModel: T): Unit =
+    private val `object`: ConstraintLayout = itemView.findViewById(R.id.objectLayout)
+    open fun bind(uiModel: T){
         uiModel.show(nameView)
+        `object`.setOnClickListener{
+            onObjectClickListener.invoke(uiModel.getFragmentName())
+        }
+    }
 
 
     class Success<T: UIEntity<T>>(
         private val imageLoader: ImageLoader,
-        view: View
-    ) : ViewHolder<T>(view) {
+        view: View,
+        onClickListener: (name: String) -> Unit
+    ) : ViewHolder<T>(view, onClickListener) {
         private val imageView = itemView.findViewById<ImageView>(R.id.imageHolder)
         override fun bind(uiModel: T) {
             super.bind(uiModel)
@@ -71,15 +77,6 @@ abstract class ViewHolder<T: UIEntity<T>>(
     }
 
     class Error<T: UIEntity<T>>(view: View,
-                                private val reloadListener: () -> Unit
-    ) : ViewHolder<T>(view) {
-        private val reloadButton = itemView.findViewById<Button>(R.id.reloadButton)
-        override fun bind(uiModel: T) {
-            super.bind(uiModel)
-
-            reloadButton.setOnClickListener {
-                reloadListener.invoke()
-            }
-        }
-    }
+                                reloadListener: (name: String) -> Unit
+    ) : ViewHolder<T>(view, reloadListener)
 }

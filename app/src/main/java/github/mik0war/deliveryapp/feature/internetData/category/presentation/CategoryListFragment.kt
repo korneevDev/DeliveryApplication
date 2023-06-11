@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import github.mik0war.deliveryapp.DeliveryApp
 import github.mik0war.deliveryapp.MainActivity
@@ -29,7 +30,21 @@ class CategoryListFragment : Fragment() {
             .appComponent.categorySubComponent().create().inject(this)
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter = CategoryRecyclerViewAdapter(categoryViewModel, ImageLoader.Base()){
+        arguments?.let{
+            (requireActivity() as MainActivity).supportActionBar?.title =
+                it.getString(FRAGMENT_NAME_KEY)
+        }
+
+        val onSuccessClickListener: (name: String) -> Unit = { string ->
+            val bundle = Bundle().also { it.putString(FRAGMENT_NAME_KEY, string) }
+            findNavController().navigate(R.id.action_navigation_home_to_navigation_dish, bundle)
+        }
+
+        val adapter = CategoryRecyclerViewAdapter(
+            categoryViewModel,
+            ImageLoader.Base(),
+            onSuccessClickListener
+        ){
             categoryViewModel.getCategoryList()
         }
 
@@ -40,5 +55,9 @@ class CategoryListFragment : Fragment() {
         view.findViewById<RecyclerView>(R.id.objectList).adapter = adapter
 
         categoryViewModel.getCategoryList()
+    }
+
+    companion object{
+        const val FRAGMENT_NAME_KEY = "FRAGMENT_KEY"
     }
 }

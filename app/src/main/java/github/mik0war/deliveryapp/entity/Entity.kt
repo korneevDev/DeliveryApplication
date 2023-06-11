@@ -9,6 +9,7 @@ interface Entity {
 interface UIEntity<T> : Entity {
     fun equalsId(other: T): Boolean
     fun getUrl(): String
+    fun getFragmentName(): String
 
     fun show(nameView: CustomTextView)
 }

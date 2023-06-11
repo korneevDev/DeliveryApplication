@@ -14,6 +14,9 @@ sealed class CategoryUIModel(
         nameView.set(name)
     }
     override fun getUrl() = imageUrl
+
+    override fun getFragmentName() = name
+
     class Success(
         id: Int,
         name: String,

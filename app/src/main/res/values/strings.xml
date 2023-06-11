@@ -9,4 +9,6 @@
     <string name="error_message_no_connection">No connection</string>
     <string name="error_message_unknown_error">Unknown error</string>
     <string name="reload">Reload</string>
+    <string name="descriptionCategoryImageView">Image, represents category of dishes</string>
+    <string name="descriptionDishImageView">Image which represent dish</string>
 </resources>

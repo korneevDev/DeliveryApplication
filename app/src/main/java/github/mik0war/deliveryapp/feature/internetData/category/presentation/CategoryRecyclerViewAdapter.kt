@@ -9,8 +9,14 @@ import github.mik0war.deliveryapp.feature.internetData.core.presentation.Recycle
 class CategoryRecyclerViewAdapter(
     internetDataLiveData: GetList<CategoryUIModel>,
     imageLoader: ImageLoader,
-    recycleButtonListener: () -> Unit
-) : RecyclerViewAdapter<CategoryUIModel>(internetDataLiveData, imageLoader, recycleButtonListener) {
+    onSuccessListener: (name: String) -> Unit,
+    onErrorListener: (name: String) -> Unit
+) : RecyclerViewAdapter<CategoryUIModel>(
+    internetDataLiveData,
+    imageLoader,
+    onSuccessListener,
+    onErrorListener
+) {
     override fun errorClass(model: CategoryUIModel) = model is CategoryUIModel.Error
     override fun getSuccessLayout() = R.layout.category_object
 }
