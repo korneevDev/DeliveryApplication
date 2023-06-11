@@ -2,13 +2,13 @@ package github.mik0war.deliveryapp.feature.internetData.dish.di.domain
 
 import dagger.Binds
 import dagger.Module
-import github.mik0war.deliveryapp.feature.internetData.core.core.StringResourceProvider
+import github.mik0war.deliveryapp.entity.StringResourceProvider
 import github.mik0war.deliveryapp.feature.internetData.core.data.InternetDataRepositoryImpl
 import github.mik0war.deliveryapp.feature.internetData.core.domain.ExceptionHandler
 import github.mik0war.deliveryapp.feature.internetData.core.domain.InternetDataInteractor
 import github.mik0war.deliveryapp.feature.internetData.core.domain.InternetDataRepository
-import github.mik0war.deliveryapp.feature.internetData.dish.data.DishDataModel
-import github.mik0war.deliveryapp.feature.internetData.dish.domain.Dish
+import github.mik0war.deliveryapp.entity.dish.DishDataModel
+import github.mik0war.deliveryapp.entity.dish.Dish
 import github.mik0war.deliveryapp.feature.internetData.dish.domain.DishExceptionHandler
 
 @Module

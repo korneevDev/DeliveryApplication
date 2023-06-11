@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import github.mik0war.deliveryapp.DeliveryApp
 import github.mik0war.deliveryapp.MainActivity
 import github.mik0war.deliveryapp.R
+import github.mik0war.deliveryapp.entity.dish.DishUIModel
 import github.mik0war.deliveryapp.feature.internetData.core.presentation.ImageLoader
 import github.mik0war.deliveryapp.feature.internetData.core.presentation.InternetDataViewModel
 import javax.inject.Inject

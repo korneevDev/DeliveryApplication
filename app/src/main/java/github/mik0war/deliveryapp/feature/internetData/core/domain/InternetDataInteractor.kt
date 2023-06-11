@@ -1,7 +1,7 @@
 package github.mik0war.deliveryapp.feature.internetData.core.domain
 
-import github.mik0war.deliveryapp.feature.internetData.core.core.InternetDataMapper
-import github.mik0war.deliveryapp.feature.internetData.core.core.Entity
+import github.mik0war.deliveryapp.entity.InternetDataMapper
+import github.mik0war.deliveryapp.entity.Entity
 import javax.inject.Inject
 
 interface InternetDataInteractor<R> {

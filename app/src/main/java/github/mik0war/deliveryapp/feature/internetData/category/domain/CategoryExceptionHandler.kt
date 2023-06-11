@@ -1,9 +1,10 @@
 package github.mik0war.deliveryapp.feature.internetData.category.domain
 
 import github.mik0war.deliveryapp.R
-import github.mik0war.deliveryapp.feature.internetData.core.core.NoConnectionException
-import github.mik0war.deliveryapp.feature.internetData.core.core.ServiceUnavailableException
-import github.mik0war.deliveryapp.feature.internetData.core.core.StringResourceProvider
+import github.mik0war.deliveryapp.entity.category.Category
+import github.mik0war.deliveryapp.entity.NoConnectionException
+import github.mik0war.deliveryapp.entity.ServiceUnavailableException
+import github.mik0war.deliveryapp.entity.StringResourceProvider
 import github.mik0war.deliveryapp.feature.internetData.core.domain.ExceptionHandler
 import javax.inject.Inject
 

@@ -2,10 +2,10 @@ package github.mik0war.deliveryapp.feature.internetData.category.di.domain
 
 import dagger.Binds
 import dagger.Module
-import github.mik0war.deliveryapp.feature.internetData.category.data.CategoryDataModel
-import github.mik0war.deliveryapp.feature.internetData.category.domain.Category
+import github.mik0war.deliveryapp.entity.category.CategoryDataModel
+import github.mik0war.deliveryapp.entity.category.Category
 import github.mik0war.deliveryapp.feature.internetData.category.domain.CategoryExceptionHandler
-import github.mik0war.deliveryapp.feature.internetData.core.core.StringResourceProvider
+import github.mik0war.deliveryapp.entity.StringResourceProvider
 import github.mik0war.deliveryapp.feature.internetData.core.data.InternetDataRepositoryImpl
 import github.mik0war.deliveryapp.feature.internetData.core.domain.ExceptionHandler
 import github.mik0war.deliveryapp.feature.internetData.core.domain.InternetDataInteractor

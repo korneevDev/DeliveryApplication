@@ -2,11 +2,11 @@ package github.mik0war.deliveryapp.feature.internetData.dish.di.data
 
 import dagger.Module
 import dagger.Provides
-import github.mik0war.deliveryapp.feature.internetData.core.core.InternetDataMapper
-import github.mik0war.deliveryapp.feature.internetData.dish.core.DishMapper
-import github.mik0war.deliveryapp.feature.internetData.dish.data.DishDataModel
-import github.mik0war.deliveryapp.feature.internetData.dish.data.cloud.DishServerModel
-import github.mik0war.deliveryapp.feature.internetData.dish.data.cloud.DishService
+import github.mik0war.deliveryapp.entity.InternetDataMapper
+import github.mik0war.deliveryapp.entity.mapper.DishMapper
+import github.mik0war.deliveryapp.entity.dish.DishDataModel
+import github.mik0war.deliveryapp.feature.internetData.dish.data.DishServerModel
+import github.mik0war.deliveryapp.feature.internetData.dish.data.DishService
 import retrofit2.Retrofit
 
 @Module
@@ -18,7 +18,7 @@ class DishDataProviderModule {
 
     @Provides
     fun provideDataMapper(mapper: DishMapper<DishDataModel>) =
-        object : InternetDataMapper<DishServerModel, DishDataModel>{
+        object : InternetDataMapper<DishServerModel, DishDataModel> {
             override fun map(dataObject: DishServerModel): DishDataModel =
                 dataObject.map(mapper)
         }

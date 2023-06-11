@@ -2,10 +2,10 @@ package github.mik0war.deliveryapp.feature.internetData.category.di.presentation
 
 import dagger.Module
 import dagger.Provides
-import github.mik0war.deliveryapp.feature.internetData.category.core.CategoryMapper
-import github.mik0war.deliveryapp.feature.internetData.category.domain.Category
-import github.mik0war.deliveryapp.feature.internetData.category.presentation.CategoryUIModel
-import github.mik0war.deliveryapp.feature.internetData.core.core.InternetDataMapper
+import github.mik0war.deliveryapp.entity.mapper.CategoryMapper
+import github.mik0war.deliveryapp.entity.category.Category
+import github.mik0war.deliveryapp.entity.category.CategoryUIModel
+import github.mik0war.deliveryapp.entity.InternetDataMapper
 
 @Module
 class CategoryPresentationProviderModule {

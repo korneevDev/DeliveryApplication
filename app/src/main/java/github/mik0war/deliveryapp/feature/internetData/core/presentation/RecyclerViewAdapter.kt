@@ -7,11 +7,12 @@ import android.widget.Button
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import github.mik0war.deliveryapp.R
-import github.mik0war.deliveryapp.feature.internetData.core.core.UIEntity
+import github.mik0war.deliveryapp.entity.UIEntity
 
 abstract class RecyclerViewAdapter<T: UIEntity<T>>(
     private val internetDataLiveData: GetList<T>,
     private val imageLoader: ImageLoader,
+//    private val onClickListener: (name: String) -> Unit,
     private val recycleButtonListener: () -> Unit
 ) : RecyclerView.Adapter<ViewHolder<T>>() {
 
@@ -69,7 +70,7 @@ abstract class ViewHolder<T: UIEntity<T>>(
     }
 
     class Error<T: UIEntity<T>>(view: View,
-        private val reloadListener: () -> Unit
+                                private val reloadListener: () -> Unit
     ) : ViewHolder<T>(view) {
         private val reloadButton = itemView.findViewById<Button>(R.id.reloadButton)
         override fun bind(uiModel: T) {

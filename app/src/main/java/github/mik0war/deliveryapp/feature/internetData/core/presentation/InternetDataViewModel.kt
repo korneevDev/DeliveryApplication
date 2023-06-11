@@ -4,10 +4,10 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import github.mik0war.deliveryapp.feature.internetData.core.core.Entity
-import github.mik0war.deliveryapp.feature.internetData.core.core.InternetDataMapper
-import github.mik0war.deliveryapp.feature.internetData.core.core.UIEntity
-import github.mik0war.deliveryapp.feature.internetData.core.di.MainDispatcher
+import github.mik0war.deliveryapp.entity.Entity
+import github.mik0war.deliveryapp.entity.InternetDataMapper
+import github.mik0war.deliveryapp.entity.UIEntity
+import github.mik0war.deliveryapp.di.MainDispatcher
 import github.mik0war.deliveryapp.feature.internetData.core.domain.InternetDataInteractor
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Job

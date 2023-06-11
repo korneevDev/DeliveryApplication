@@ -2,8 +2,8 @@ package github.mik0war.deliveryapp.feature.internetData.category.di.data
 
 import dagger.Binds
 import dagger.Module
-import github.mik0war.deliveryapp.feature.internetData.category.data.CategoryDataModel
-import github.mik0war.deliveryapp.feature.internetData.category.data.cloud.CategoryCloudDataSource
+import github.mik0war.deliveryapp.entity.category.CategoryDataModel
+import github.mik0war.deliveryapp.feature.internetData.category.data.CategoryCloudDataSource
 import github.mik0war.deliveryapp.feature.internetData.core.data.CloudDataSource
 
 @Module

@@ -3,8 +3,8 @@ package github.mik0war.deliveryapp.feature.internetData.dish.di.data
 import dagger.Binds
 import dagger.Module
 import github.mik0war.deliveryapp.feature.internetData.core.data.CloudDataSource
-import github.mik0war.deliveryapp.feature.internetData.dish.data.DishDataModel
-import github.mik0war.deliveryapp.feature.internetData.dish.data.cloud.DishCloudDataSource
+import github.mik0war.deliveryapp.entity.dish.DishDataModel
+import github.mik0war.deliveryapp.feature.internetData.dish.data.DishCloudDataSource
 
 @Module
 abstract class DishDataBindsModule {

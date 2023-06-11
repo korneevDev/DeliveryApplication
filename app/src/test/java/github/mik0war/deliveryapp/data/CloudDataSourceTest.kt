@@ -1,12 +1,12 @@
 package github.mik0war.deliveryapp.data
 
 import github.mik0war.deliveryapp.core.data.DataModelMapper
-import github.mik0war.deliveryapp.feature.internetData.category.data.CategoryDataModel
-import github.mik0war.deliveryapp.feature.internetData.category.data.MapperToCategoryDataModel
-import github.mik0war.deliveryapp.feature.internetData.category.data.cloud.CategoryCloudDataSource
-import github.mik0war.deliveryapp.feature.internetData.category.data.cloud.TestCategoryService
-import github.mik0war.deliveryapp.feature.internetData.core.core.NoConnectionException
-import github.mik0war.deliveryapp.feature.internetData.core.core.ServiceUnavailableException
+import github.mik0war.deliveryapp.entity.NoConnectionException
+import github.mik0war.deliveryapp.entity.ServiceUnavailableException
+import github.mik0war.deliveryapp.entity.category.CategoryDataModel
+import github.mik0war.deliveryapp.entity.mapper.CategoryMapper
+import github.mik0war.deliveryapp.feature.internetData.category.data.CategoryCloudDataSource
+import github.mik0war.deliveryapp.feature.internetData.category.data.TestCategoryService
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals
 import org.junit.Test
@@ -45,4 +45,11 @@ class CloudDataSourceTest {
             assert(e is ServiceUnavailableException)
         }
     }
+}
+
+class MapperToCategoryDataModel :
+    CategoryMapper<CategoryDataModel> {
+    override fun map(id: Int, name: String, imageUrl: String) =
+        CategoryDataModel (id, name, imageUrl)
+
 }

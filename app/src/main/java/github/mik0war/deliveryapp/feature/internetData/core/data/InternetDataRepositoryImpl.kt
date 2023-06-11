@@ -1,6 +1,6 @@
 package github.mik0war.deliveryapp.feature.internetData.core.data
 
-import github.mik0war.deliveryapp.feature.internetData.core.di.IODispatcher
+import github.mik0war.deliveryapp.di.IODispatcher
 import github.mik0war.deliveryapp.feature.internetData.core.domain.InternetDataRepository
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext

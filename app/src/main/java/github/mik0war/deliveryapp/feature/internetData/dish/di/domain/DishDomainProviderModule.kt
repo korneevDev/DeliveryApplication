@@ -2,10 +2,10 @@ package github.mik0war.deliveryapp.feature.internetData.dish.di.domain
 
 import dagger.Module
 import dagger.Provides
-import github.mik0war.deliveryapp.feature.internetData.core.core.InternetDataMapper
-import github.mik0war.deliveryapp.feature.internetData.dish.core.DishMapper
-import github.mik0war.deliveryapp.feature.internetData.dish.data.DishDataModel
-import github.mik0war.deliveryapp.feature.internetData.dish.domain.Dish
+import github.mik0war.deliveryapp.entity.InternetDataMapper
+import github.mik0war.deliveryapp.entity.mapper.DishMapper
+import github.mik0war.deliveryapp.entity.dish.DishDataModel
+import github.mik0war.deliveryapp.entity.dish.Dish
 
 @Module
 class DishDomainProviderModule {

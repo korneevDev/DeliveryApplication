@@ -1,7 +1,7 @@
 package github.mik0war.deliveryapp.feature.internetData.core.presentation
 
 import androidx.recyclerview.widget.DiffUtil
-import github.mik0war.deliveryapp.feature.internetData.core.core.UIEntity
+import github.mik0war.deliveryapp.entity.UIEntity
 
 class InternetDataDiffUtilCallback<T: UIEntity<T>>(
     private val oldList: List<T>,
