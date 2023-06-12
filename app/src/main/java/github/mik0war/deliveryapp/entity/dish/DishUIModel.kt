@@ -21,6 +21,15 @@ sealed class DishUIModel(
         nameView.set(name)
     }
 
+    open fun show(nameView: CustomTextView,
+                  priceView: CustomTextView,
+                  weightView: CustomTextView,
+                  descriptionView: CustomTextView,
+                  priceAddition: String,
+                  weightPrefix: String,
+                  weightMeasure: String,
+    ): Unit = throw IllegalStateException()
+
     override fun getFragmentName(): String = name
 
     class Success(
@@ -35,6 +44,21 @@ sealed class DishUIModel(
 
         override fun equalsId(other: DishUIModel)
                 = other is Success && other.id == this.id
+
+        override fun show(
+            nameView: CustomTextView,
+            priceView: CustomTextView,
+            weightView: CustomTextView,
+            descriptionView: CustomTextView,
+            priceAddition: String,
+            weightPrefix: String,
+            weightMeasure: String,
+        ) {
+            nameView.set(name)
+            priceView.set("$price $priceAddition")
+            weightView.set(" $weightPrefix $weight $weightMeasure")
+            descriptionView.set(description)
+        }
     }
 
 

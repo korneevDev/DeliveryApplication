@@ -1,21 +1,13 @@
 package github.mik0war.deliveryapp.feature.internetData.dish.di
 
 import dagger.Subcomponent
-import github.mik0war.deliveryapp.feature.internetData.dish.di.data.DishDataBindsModule
-import github.mik0war.deliveryapp.feature.internetData.dish.di.data.DishDataProviderModule
-import github.mik0war.deliveryapp.feature.internetData.dish.di.domain.DishDomainBindsModule
-import github.mik0war.deliveryapp.feature.internetData.dish.di.domain.DishDomainProviderModule
-import github.mik0war.deliveryapp.feature.internetData.dish.di.presentation.DishPresentationBaseModule
-import github.mik0war.deliveryapp.feature.internetData.dish.di.presentation.DishPresentationProviderModule
+import github.mik0war.deliveryapp.feature.internetData.dish.di.data.DishBindsModule
+import github.mik0war.deliveryapp.feature.internetData.dish.di.data.DishProvidesModule
 import github.mik0war.deliveryapp.feature.internetData.dish.presentation.DishListFragment
 
 @Subcomponent(modules = [
-    DishDataBindsModule::class,
-    DishDataProviderModule::class,
-    DishDomainBindsModule::class,
-    DishDomainProviderModule::class,
-    DishPresentationBaseModule::class,
-    DishPresentationProviderModule::class
+    DishBindsModule::class,
+    DishProvidesModule::class
 ])
 interface DishSubComponent {
 
@@ -25,4 +17,5 @@ interface DishSubComponent {
     }
 
     fun inject(fragment: DishListFragment)
+
 }

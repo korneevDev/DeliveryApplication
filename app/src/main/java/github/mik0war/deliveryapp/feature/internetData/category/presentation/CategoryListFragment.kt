@@ -30,11 +30,6 @@ class CategoryListFragment : Fragment() {
             .appComponent.categorySubComponent().create().inject(this)
         super.onViewCreated(view, savedInstanceState)
 
-        arguments?.let{
-            (requireActivity() as MainActivity).supportActionBar?.title =
-                it.getString(FRAGMENT_NAME_KEY)
-        }
-
         view.findViewById<RecyclerView>(R.id.objectList).adapter = setupAdapter()
 
         categoryViewModel.getCategoryList()
@@ -48,12 +43,14 @@ class CategoryListFragment : Fragment() {
         val adapter = CategoryRecyclerViewAdapter(
             categoryViewModel,
             ImageLoader.Base(),
+            CategoryTransferDataGetter()
         )
 
         val onSuccessClickListener: (name: String) -> Unit = { string ->
             val bundle = Bundle().also { it.putString(FRAGMENT_NAME_KEY, string) }
             findNavController().navigate(R.id.action_navigation_home_to_navigation_dish, bundle)
         }
+
         val onErrorClockListener: () -> Unit = {
             categoryViewModel.getCategoryList()
         }
