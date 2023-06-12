@@ -8,8 +8,12 @@ import github.mik0war.deliveryapp.feature.internetData.core.presentation.Recycle
 
 class DishRecyclerViewAdapter(
     internetDataLiveData: GetList<DishUIModel>,
-    imageLoader: ImageLoader
-) : RecyclerViewAdapter<DishUIModel>(internetDataLiveData, imageLoader) {
+    imageLoader: ImageLoader,
+    transferDataGetter: DishTransferDataGetter
+) : RecyclerViewAdapter<DishUIModel, DishUIModel>(
+    internetDataLiveData,
+    imageLoader,
+    transferDataGetter) {
     override fun errorClass(model: DishUIModel) = model is DishUIModel.Error
     override fun getSuccessLayout() = R.layout.dish_object
 }

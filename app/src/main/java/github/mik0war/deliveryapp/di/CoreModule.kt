@@ -1,7 +1,10 @@
 package github.mik0war.deliveryapp.di
 
+import android.content.Context
+import androidx.room.Room
 import dagger.Module
 import dagger.Provides
+import github.mik0war.deliveryapp.feature.shoppingCart.core.DishDataBase
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import retrofit2.Retrofit
@@ -25,6 +28,12 @@ class CoreModule {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
+    @Singleton
+    @Provides
+    fun provideRoom(context: Context): DishDataBase = Room.databaseBuilder(
+        context,
+        DishDataBase::class.java, "database-dish"
+    ).build()
 }
 
 @Qualifier

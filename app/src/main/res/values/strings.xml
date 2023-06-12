@@ -11,4 +11,10 @@
     <string name="reload">Reload</string>
     <string name="descriptionCategoryImageView">Image, represents category of dishes</string>
     <string name="descriptionDishImageView">Image which represent dish</string>
+    <string name="price_addition" translatable="false">₽</string>
+    <string name="weight_measure">g</string>
+    <string name="weight_prefix" translatable="false">·</string>
+    <string name="applyButtonLabel">Add to cart</string>
+    <string name="close_button">Close button</string>
+    <string name="favorites_button">Favorites button</string>
 </resources>

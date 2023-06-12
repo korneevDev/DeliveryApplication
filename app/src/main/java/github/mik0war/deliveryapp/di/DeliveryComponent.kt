@@ -5,6 +5,7 @@ import dagger.BindsInstance
 import dagger.Component
 import github.mik0war.deliveryapp.feature.internetData.category.di.CategorySubComponent
 import github.mik0war.deliveryapp.feature.internetData.dish.di.DishSubComponent
+import github.mik0war.deliveryapp.feature.shoppingCart.fill.di.FillShoppingCartSubComponent
 import javax.inject.Singleton
 
 @Singleton
@@ -21,4 +22,6 @@ interface DeliveryComponent{
 
     fun categorySubComponent(): CategorySubComponent.Factory
     fun dishSubComponent(): DishSubComponent.Factory
+    fun fillCartSubComponent(): FillShoppingCartSubComponent.Factory
+
 }

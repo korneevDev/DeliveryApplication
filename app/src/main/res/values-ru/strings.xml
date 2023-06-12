@@ -12,4 +12,8 @@
     <string name="reload">Перезагрузить</string>
     <string name="descriptionCategoryImageView">Категория блюд</string>
     <string name="descriptionDishImageView">Картинка блюда</string>
+    <string name="weight_measure">г</string>
+    <string name="applyButtonLabel">Добавить в корзину</string>
+    <string name="close_button">Кнопка закрыть</string>
+    <string name="favorites_button">Кнопка избранное</string>
 </resources>

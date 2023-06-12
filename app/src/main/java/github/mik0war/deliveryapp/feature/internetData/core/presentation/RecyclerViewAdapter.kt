@@ -10,12 +10,13 @@ import github.mik0war.deliveryapp.R
 import github.mik0war.deliveryapp.entity.CustomTextView
 import github.mik0war.deliveryapp.entity.UIEntity
 
-abstract class RecyclerViewAdapter<T: UIEntity<T>>(
+abstract class RecyclerViewAdapter<T: UIEntity<T>, E>(
     private val internetDataLiveData: GetList<T>,
     private val imageLoader: ImageLoader,
+    private val transferDataGetter: TransferDataGetter<T, E>
 ) : RecyclerView.Adapter<ViewHolder<T>>() {
 
-    var onSuccessClickListener: (name: String) -> Unit = {}
+    var onSuccessClickListener: (name: E) -> Unit = {}
     var onErrorClickListener: () -> Unit = {}
     fun update() {
         val diffResult = internetDataLiveData.getDiffUtilResult()
@@ -36,7 +37,7 @@ abstract class RecyclerViewAdapter<T: UIEntity<T>>(
 
         return if (emptyList)
             ViewHolder.Error(view, onErrorClickListener)
-        else ViewHolder.Success(imageLoader, view, onSuccessClickListener)
+        else ViewHolder.Success(imageLoader, view, onSuccessClickListener, transferDataGetter)
     }
 
     override fun getItemCount() = internetDataLiveData.getList().size
@@ -60,10 +61,11 @@ abstract class ViewHolder<T: UIEntity<T>>(
     }
 
 
-    class Success<T: UIEntity<T>>(
+    class Success<T: UIEntity<T>, E>(
         private val imageLoader: ImageLoader,
         view: View,
-        private val onClickListener: (name: String) -> Unit
+        private val onClickListener: (name: E) -> Unit,
+        private val transferDataGetter: TransferDataGetter<T, E>
     ) : ViewHolder<T>(view) {
         private val imageView = itemView.findViewById<ImageView>(R.id.imageHolder)
         override fun bind(uiModel: T) {
@@ -71,7 +73,7 @@ abstract class ViewHolder<T: UIEntity<T>>(
             imageLoader.loadImage(uiModel.getUrl(), imageView)
 
             `object`.setOnClickListener{
-                onClickListener.invoke(uiModel.getFragmentName())
+                onClickListener.invoke(transferDataGetter.getTransferData(uiModel))
             }
         }
     }
