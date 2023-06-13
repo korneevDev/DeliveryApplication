@@ -5,7 +5,8 @@ import github.mik0war.deliveryapp.feature.getListData.dish.presentation.DishList
 
 @Subcomponent(modules = [
     DishBindsModule::class,
-    DishProvidesModule::class
+    DishProvidesModule::class,
+    TagsModule::class
 ])
 interface DishSubComponent {
 

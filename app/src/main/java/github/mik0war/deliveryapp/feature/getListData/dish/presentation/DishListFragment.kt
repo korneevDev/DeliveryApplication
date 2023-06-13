@@ -11,16 +11,23 @@ import androidx.recyclerview.widget.RecyclerView
 import github.mik0war.deliveryapp.DeliveryApp
 import github.mik0war.deliveryapp.MainActivity
 import github.mik0war.deliveryapp.R
+import github.mik0war.deliveryapp.entity.ColorResourceProvider
 import github.mik0war.deliveryapp.entity.StringResourceProvider
 import github.mik0war.deliveryapp.entity.dish.DishUIModel
 import github.mik0war.deliveryapp.feature.getListData.category.presentation.CategoryListFragment.Companion.FRAGMENT_NAME_KEY
-import github.mik0war.deliveryapp.feature.getListData.core.presentation.ImageLoader
 import github.mik0war.deliveryapp.feature.getListData.core.presentation.GetDataListViewModel
+import github.mik0war.deliveryapp.feature.getListData.core.presentation.ImageLoader
+import github.mik0war.deliveryapp.feature.getListData.dish.tags.Tag
+import github.mik0war.deliveryapp.feature.getListData.dish.tags.presentation.TagsRecyclerViewAdapter
+import github.mik0war.deliveryapp.feature.getListData.dish.tags.presentation.TagsViewModel
 import javax.inject.Inject
 
 class DishListFragment : Fragment() {
     @Inject
     lateinit var dishViewModel: GetDataListViewModel<DishUIModel>
+    @Inject
+    lateinit var tagsViewModel: TagsViewModel<DishUIModel>
+
     lateinit var fillViewModel: ShoppingCartCommunicationViewModelFromDishList
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -52,6 +59,12 @@ class DishListFragment : Fragment() {
         recyclerView.layoutManager = GridLayoutManager(requireContext(), 3)
 
         dishViewModel.getDataList()
+
+        val tagsView = view.findViewById<RecyclerView>(R.id.tagsList)
+        tagsView.visibility = View.VISIBLE
+
+        tagsView.adapter = setupTagsAdapter()
+
     }
     private fun setupAdapter(dialogConfigurator: DishDialogConfigurator): DishRecyclerViewAdapter{
         val onSuccessClickListener: (name: DishUIModel) -> Unit = { uiModel ->
@@ -82,4 +95,41 @@ class DishListFragment : Fragment() {
         return adapter
     }
 
+    private fun setupTagsAdapter() : TagsRecyclerViewAdapter{
+
+        dishViewModel.observe(this) {
+            tagsViewModel.setTagsList(tagsViewModel.updateTagsList(it))
+        }
+
+        val onAddTagClickListener: (tag: Tag) -> Unit = {tag  ->
+            val newTagsList: List<Tag> = tagsViewModel.getList().toMutableList().also{
+                it.remove(tag)
+                it.add(0, Tag(tag.name, true))
+            }
+            tagsViewModel.setTagsList(newTagsList)
+            dishViewModel.getDataList(tagsViewModel.getSelectedTags())
+        }
+
+        val onRemoveTagClickListener: (tag: Tag) -> Unit = {tag ->
+            val newTagsList: List<Tag> = tagsViewModel.getList().toMutableList().also{
+                it.remove(tag)
+                it.add(Tag(tag.name, false))
+            }
+            tagsViewModel.setTagsList(newTagsList)
+            dishViewModel.getDataList(tagsViewModel.getSelectedTags())
+        }
+
+        val adapter = TagsRecyclerViewAdapter(
+            tagsViewModel,
+            ColorResourceProvider.Base(requireContext()),
+            onAddTagClickListener,
+            onRemoveTagClickListener
+            )
+
+        tagsViewModel.observe(this){
+            adapter.update()
+        }
+
+        return adapter
+    }
 }

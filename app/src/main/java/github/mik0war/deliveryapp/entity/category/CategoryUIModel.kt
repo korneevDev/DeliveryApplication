@@ -17,6 +17,8 @@ sealed class CategoryUIModel(
 
     override fun getCurrentName() = name
 
+    override fun getTagsList(): List<String> = emptyList()
+
     class Success(
         id: Int,
         name: String,

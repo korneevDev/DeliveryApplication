@@ -8,6 +8,18 @@
     tools:context=".feature.getListData.category.presentation.CategoryListFragment">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/tagsList"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal"
+        tools:visibility="visible"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/objectList"
         android:layout_marginHorizontal="16dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"

@@ -16,6 +16,7 @@ sealed class DishUIModel(
     override fun equalsId(other: DishUIModel) = false
 
     override fun getUrl() = image_url
+    override fun getTagsList(): List<String> = tags
 
     override fun show(nameView: CustomTextView) {
         nameView.set(name)

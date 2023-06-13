@@ -11,6 +11,7 @@ interface UIEntity<T> : Entity {
     fun equalsId(other: T): Boolean
     fun getUrl(): String
     fun getCurrentName(): String
+    fun getTagsList(): List<String>
 
     fun show(nameView: CustomTextView)
 }

@@ -17,6 +17,7 @@ sealed class DishCountedUIModel(
     override fun equalsId(other: DishCountedUIModel) = false
 
     fun getTotalPrice() = price * count
+    override fun getTagsList(): List<String> = tags
 
     override fun getUrl() = image_url
 
