@@ -12,9 +12,11 @@ interface CacheDataSource<T> {
         override fun changeDishCount(dish: DishCacheModel, count: Int) {
             val dishFromDB = dishDAO.getDishByID(dish.id)
 
-            if(dishFromDB == null)
-                dishDAO.create(dish.also { it.count = count })
-            else if(dishFromDB.count + count <= 0)
+            if(dishFromDB == null) {
+                if (count > 0)
+                    dishDAO.create(dish.also { it.count = count })
+            }
+            else if(dishFromDB.count <= 0 || dishFromDB.count + count <= 0)
                 dishDAO.delete(dishFromDB)
             else
                 dishDAO.update(dishFromDB.updateCount(count))

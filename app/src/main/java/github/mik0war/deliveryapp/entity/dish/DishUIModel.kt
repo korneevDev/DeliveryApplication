@@ -30,7 +30,7 @@ sealed class DishUIModel(
                   weightMeasure: String,
     ): Unit = throw IllegalStateException()
 
-    override fun getFragmentName(): String = name
+    override fun getCurrentName(): String = name
 
     class Success(
         id: Int,

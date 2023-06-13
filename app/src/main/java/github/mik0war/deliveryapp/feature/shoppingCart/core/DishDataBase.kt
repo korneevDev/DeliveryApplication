@@ -17,6 +17,7 @@ import github.mik0war.deliveryapp.feature.shoppingCart.fill.data.cache.DishCache
 @TypeConverters(value = [Converters::class])
 abstract class DishDataBase : RoomDatabase(){
     abstract fun fillShoppingCartDAO(): DishDAO
+    abstract fun getDishListDAO(): GetDishDAO
 }
 
 class Converters {

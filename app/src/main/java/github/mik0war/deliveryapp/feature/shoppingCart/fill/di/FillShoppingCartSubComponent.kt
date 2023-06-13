@@ -1,7 +1,8 @@
 package github.mik0war.deliveryapp.feature.shoppingCart.fill.di
 
 import dagger.Subcomponent
-import github.mik0war.deliveryapp.feature.internetData.dish.presentation.ShoppingCartViewModel
+import github.mik0war.deliveryapp.feature.getListData.dish.presentation.ShoppingCartCommunicationViewModelFromDishList
+import github.mik0war.deliveryapp.feature.shoppingCart.show.presentation.ShoppingCartCommunicationViewModelFromCart
 
 @Subcomponent(
     modules = [
@@ -16,6 +17,7 @@ interface FillShoppingCartSubComponent {
         fun create(): FillShoppingCartSubComponent
     }
 
-    fun inject(shoppingCartViewModel: ShoppingCartViewModel.Base)
+    fun inject(shoppingCartViewModel: ShoppingCartCommunicationViewModelFromDishList)
+    fun inject(shoppingCartViewModel: ShoppingCartCommunicationViewModelFromCart)
 
 }

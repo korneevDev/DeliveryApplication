@@ -16,4 +16,5 @@
     <string name="applyButtonLabel">Добавить в корзину</string>
     <string name="close_button">Кнопка закрыть</string>
     <string name="favorites_button">Кнопка избранное</string>
+    <string name="error_no_dishes_in_shopping_cart">Пустая корзина</string>
 </resources>

@@ -1,8 +1,8 @@
 package github.mik0war.deliveryapp.entity.dish
 
 import github.mik0war.deliveryapp.entity.Entity
-import github.mik0war.deliveryapp.entity.mapper.DishMapper
-import github.mik0war.deliveryapp.entity.mapper.Mapper
+import github.mik0war.deliveryapp.entity.mapper.DishMapperTo
+import github.mik0war.deliveryapp.entity.mapper.MapperTo
 
 abstract class DishEntity(
     protected val id: Int,
@@ -13,9 +13,10 @@ abstract class DishEntity(
     protected val image_url: String,
     protected val tags: List<String>
 ) : Entity{
+    override fun getTagsForFilter() = tags
 
-    override fun <S: Mapper<R>, R> map(mapper: S) =
-        (mapper as DishMapper<R>).map(id, name, price, weight, description, image_url, tags)
+    override fun <S: MapperTo<R>, R> map(mapper: S) =
+        (mapper as DishMapperTo<R>).map(id, name, price, weight, description, image_url, tags)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true

@@ -15,7 +15,7 @@ sealed class CategoryUIModel(
     }
     override fun getUrl() = imageUrl
 
-    override fun getFragmentName() = name
+    override fun getCurrentName() = name
 
     class Success(
         id: Int,

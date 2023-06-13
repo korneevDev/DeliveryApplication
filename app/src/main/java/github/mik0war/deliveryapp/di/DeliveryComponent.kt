@@ -3,15 +3,17 @@ package github.mik0war.deliveryapp.di
 import android.content.Context
 import dagger.BindsInstance
 import dagger.Component
-import github.mik0war.deliveryapp.feature.internetData.category.di.CategorySubComponent
-import github.mik0war.deliveryapp.feature.internetData.dish.di.DishSubComponent
+import github.mik0war.deliveryapp.feature.getListData.category.di.CategorySubComponent
+import github.mik0war.deliveryapp.feature.getListData.dish.di.DishSubComponent
 import github.mik0war.deliveryapp.feature.shoppingCart.fill.di.FillShoppingCartSubComponent
+import github.mik0war.deliveryapp.feature.shoppingCart.show.di.ShowShoppingCartSubComponent
 import javax.inject.Singleton
 
 @Singleton
 @Component(modules = [
     SubComponents::class,
-    CoreModule::class
+    CoreModule::class,
+    MappersProvideModule::class
    ])
 interface DeliveryComponent{
 
@@ -23,5 +25,6 @@ interface DeliveryComponent{
     fun categorySubComponent(): CategorySubComponent.Factory
     fun dishSubComponent(): DishSubComponent.Factory
     fun fillCartSubComponent(): FillShoppingCartSubComponent.Factory
+    fun shoppingCartSubComponent(): ShowShoppingCartSubComponent.Factory
 
 }

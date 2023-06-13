@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="github.mik0war.deliveryapp.feature.internetData.category.presentation.CategoryListFragment"
+        android:name="github.mik0war.deliveryapp.feature.getListData.category.presentation.CategoryListFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_list_layout" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_dish"
-        android:name="github.mik0war.deliveryapp.feature.internetData.dish.presentation.DishListFragment"
+        android:name="github.mik0war.deliveryapp.feature.getListData.dish.presentation.DishListFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_list_layout" >
         <action
@@ -26,7 +26,7 @@
 
     <fragment
         android:id="@+id/navigation_cart"
-        android:name="github.mik0war.deliveryapp.presentation.notifications.NotificationsFragment"
+        android:name="github.mik0war.deliveryapp.feature.shoppingCart.show.presentation.ShowShoppingCartFragment"
         android:label="@string/title_shopping_cart"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_list_layout" />
 </navigation>
