@@ -18,4 +18,6 @@
     <string name="close_button">Close button</string>
     <string name="favorites_button">Favorites button</string>
     <string name="error_no_dishes_in_shopping_cart">There are no dishes</string>
+    <string name="buy_button_text">Pay %d ₽</string>
+    <string name="empty_buy_button_label">Pay</string>
 </resources>

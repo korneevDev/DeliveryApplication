@@ -5,6 +5,7 @@ import javax.inject.Inject
 
 interface CacheDataSource<T> {
     fun changeDishCount(dish: T, count: Int)
+    fun clearTable()
 
     class Base @Inject constructor(
         private val dishDAO: DishDAO,
@@ -20,6 +21,10 @@ interface CacheDataSource<T> {
                 dishDAO.delete(dishFromDB)
             else
                 dishDAO.update(dishFromDB.updateCount(count))
+        }
+
+        override fun clearTable() {
+            dishDAO.clearTable()
         }
     }
 }

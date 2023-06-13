@@ -13,6 +13,7 @@ import javax.inject.Inject
 
 interface ShoppingCartFillViewModel<T : Entity> {
     fun changeDishCountOnShoppingCart(dish: T, count: Int): Job
+    fun clearCart(): Job
 
     class Base<S : Entity, R : Entity> @Inject constructor(
         private val interactor: Interactor<R>,
@@ -22,6 +23,11 @@ interface ShoppingCartFillViewModel<T : Entity> {
         override fun changeDishCountOnShoppingCart(dish: S, count: Int) =
             viewModelScope.launch(dispatcher) {
                 interactor.addDishToCart(mapper.map(dish), count)
+            }
+
+        override fun clearCart(): Job =
+            viewModelScope.launch(dispatcher) {
+                interactor.clearCart()
             }
     }
 }

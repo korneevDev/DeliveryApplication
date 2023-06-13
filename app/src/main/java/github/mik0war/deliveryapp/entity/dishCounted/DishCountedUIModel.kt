@@ -16,6 +16,8 @@ sealed class DishCountedUIModel(
     UIEntity<DishCountedUIModel> {
     override fun equalsId(other: DishCountedUIModel) = false
 
+    fun getTotalPrice() = price * count
+
     override fun getUrl() = image_url
 
     override fun show(nameView: CustomTextView) {

@@ -13,6 +13,9 @@ interface DishDAO {
     @Query("SELECT * FROM dish WHERE id=:id")
     fun getDishByID(id: Int) : DishCacheModel?
 
+    @Query("Delete FROM dish")
+    fun clearTable()
+
     @Update
     fun update(dish: DishCacheModel)
 

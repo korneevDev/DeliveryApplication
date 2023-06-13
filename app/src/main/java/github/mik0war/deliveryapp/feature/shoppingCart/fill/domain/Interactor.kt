@@ -6,6 +6,7 @@ import javax.inject.Inject
 
 interface Interactor<T> {
     suspend fun addDishToCart(dish: T, countChange: Int)
+    suspend fun clearCart()
 
     class Base<S : Entity, R : Entity> @Inject constructor(
         private val repository: Repository<R>,
@@ -13,5 +14,9 @@ interface Interactor<T> {
     ) : Interactor<S> {
         override suspend fun addDishToCart(dish: S, countChange: Int) =
             repository.saveDish(mapper.map(dish), countChange)
+
+        override suspend fun clearCart() {
+            repository.clearTable()
+        }
     }
 }

@@ -17,4 +17,8 @@ class RepositoryImpl<S: Entity, R: Entity> @Inject constructor(
     override suspend fun saveDish(dish: S, count: Int) = withContext(dispatcher){
         cacheDataSource.changeDishCount(mapper.map(dish), count)
     }
+
+    override suspend fun clearTable() = withContext(dispatcher){
+        cacheDataSource.clearTable()
+    }
 }
