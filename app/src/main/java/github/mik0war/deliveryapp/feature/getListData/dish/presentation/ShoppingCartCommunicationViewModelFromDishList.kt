@@ -15,7 +15,7 @@ class ShoppingCartCommunicationViewModelFromDishList(application: DeliveryApp):
     @Inject
     lateinit var shoppingCartViewModel: ShoppingCartFillViewModel<DishUIModel>
 
-    override fun addDishOnShoppingCart(dish: DishUIModel, changeCount: Int) {
+    override fun addDishOnShoppingCart(dish: DishUIModel, changeCount: Int) =
         shoppingCartViewModel.changeDishCountOnShoppingCart(dish, changeCount)
-    }
+
 }

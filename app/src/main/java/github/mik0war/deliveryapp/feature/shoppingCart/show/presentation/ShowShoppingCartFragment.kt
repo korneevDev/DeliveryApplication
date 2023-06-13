@@ -14,6 +14,9 @@ import github.mik0war.deliveryapp.entity.dishCounted.DishCountedUIModel
 import github.mik0war.deliveryapp.feature.getListData.category.presentation.CategoryListFragment
 import github.mik0war.deliveryapp.feature.getListData.core.presentation.GetDataListViewModel
 import github.mik0war.deliveryapp.feature.getListData.core.presentation.ImageLoader
+import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class ShowShoppingCartFragment: Fragment() {
@@ -45,13 +48,19 @@ class ShowShoppingCartFragment: Fragment() {
 
         showCartViewModel.getDataList()
     }
+
+    @OptIn(DelicateCoroutinesApi::class)
     private fun setupAdapter(): ShowShoppingCartRecyclerViewAdapter {
         val onSuccessClickListener: (value: Pair<DishCountedUIModel, Int>) -> Unit = { (uiModel, id) ->
-            when(id){
-                R.id.incrementButton -> fillViewModel.addDishOnShoppingCart(uiModel, 1)
-                R.id.decrementButton -> fillViewModel.addDishOnShoppingCart(uiModel, -1)
+            val changeCount = when(id){
+                R.id.incrementButton -> 1
+                R.id.decrementButton -> -1
+                else -> throw IllegalStateException()
             }
-            showCartViewModel.getDataList()
+            GlobalScope.launch {
+                fillViewModel.addDishOnShoppingCart(uiModel, changeCount).join()
+                showCartViewModel.getDataList()
+            }
         }
 
 

@@ -4,6 +4,7 @@ import github.mik0war.deliveryapp.DeliveryApp
 import github.mik0war.deliveryapp.entity.dishCounted.DishCountedUIModel
 import github.mik0war.deliveryapp.feature.shoppingCart.fill.presentation.ShoppingCartViewModel
 import github.mik0war.deliveryapp.feature.shoppingCart.fill.presentation.ShoppingCartFillViewModel
+import kotlinx.coroutines.Job
 import javax.inject.Inject
 
 class ShoppingCartCommunicationViewModelFromCart(application: DeliveryApp):
@@ -15,7 +16,7 @@ class ShoppingCartCommunicationViewModelFromCart(application: DeliveryApp):
     @Inject
     lateinit var shoppingCartViewModel: ShoppingCartFillViewModel<DishCountedUIModel>
 
-    override fun addDishOnShoppingCart(dish: DishCountedUIModel, changeCount: Int) {
+    override fun addDishOnShoppingCart(dish: DishCountedUIModel, changeCount: Int): Job =
         shoppingCartViewModel.changeDishCountOnShoppingCart(dish, changeCount)
-    }
+
 }
