@@ -6,13 +6,11 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DiffUtil
 import github.mik0war.deliveryapp.feature.getListData.core.presentation.GetList
 import github.mik0war.deliveryapp.feature.getListData.core.presentation.ObserveLiveData
-import github.mik0war.deliveryapp.feature.getListData.dish.tags.Tag
+import github.mik0war.deliveryapp.entity.tag.Tag
 import javax.inject.Inject
 
 interface TagsLiveData : ObserveLiveData<List<Tag>>, GetList<Tag> {
     fun updateTagsList(tagsList: List<Tag>)
-    fun changeTagState(tag: Tag, isSelected: Boolean)
-    fun getSelectedTags(): List<String>
 
     class Base @Inject constructor() : TagsLiveData {
         private val tagList = MutableLiveData<List<Tag>>()
@@ -37,20 +35,6 @@ interface TagsLiveData : ObserveLiveData<List<Tag>>, GetList<Tag> {
             )
             diffResult = DiffUtil.calculateDiff(callBack)
             tagList.value = tagsList
-        }
-
-        override fun changeTagState(tag: Tag, isSelected: Boolean) {
-            tagList.value?.get(tagList.value?.indexOf(tag) ?: 0)?.isSelected = isSelected
-        }
-
-        override fun getSelectedTags(): List<String> {
-            val list = mutableListOf<String>()
-            tagList.value?.forEach{
-                if(it.isSelected)
-                    list.add(it.name)
-            }
-
-            return list.toList()
         }
 
     }

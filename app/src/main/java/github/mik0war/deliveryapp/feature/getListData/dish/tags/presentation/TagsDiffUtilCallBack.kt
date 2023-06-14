@@ -1,7 +1,7 @@
 package github.mik0war.deliveryapp.feature.getListData.dish.tags.presentation
 
 import androidx.recyclerview.widget.DiffUtil
-import github.mik0war.deliveryapp.feature.getListData.dish.tags.Tag
+import github.mik0war.deliveryapp.entity.tag.Tag
 
 class TagsDiffUtilCallBack(
     private val oldList: List<Tag>,
@@ -12,7 +12,7 @@ class TagsDiffUtilCallBack(
     override fun getNewListSize() = newList.size
 
     override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int) =
-        oldList[oldItemPosition].name == (newList[newItemPosition]).name
+        oldList[oldItemPosition].getTagName() == (newList[newItemPosition]).getTagName()
 
     override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int) =
         oldList[oldItemPosition] == newList[newItemPosition]

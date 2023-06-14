@@ -25,13 +25,7 @@ interface GetDataListInteractor<R> {
         private fun <T: Entity> List<T>.getFilteredList(tags: List<String>): List<T>{
             return if(tags.isNotEmpty()) this.filter { it.filter(tags) } else this
         }
-        private fun Entity.filter(tags: List<String>): Boolean {
-            getTagsForFilter().forEach {
-                if (it in tags)
-                    return true
-            }
-
-            return false
-        }
+        private fun Entity.filter(tags: List<String>): Boolean =
+            getTagsForFilter().containsAll(tags)
     }
 }

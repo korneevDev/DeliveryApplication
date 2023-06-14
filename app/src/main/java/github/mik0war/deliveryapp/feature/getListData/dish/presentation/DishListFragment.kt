@@ -17,7 +17,8 @@ import github.mik0war.deliveryapp.entity.dish.DishUIModel
 import github.mik0war.deliveryapp.feature.getListData.category.presentation.CategoryListFragment.Companion.FRAGMENT_NAME_KEY
 import github.mik0war.deliveryapp.feature.getListData.core.presentation.GetDataListViewModel
 import github.mik0war.deliveryapp.feature.getListData.core.presentation.ImageLoader
-import github.mik0war.deliveryapp.feature.getListData.dish.tags.Tag
+import github.mik0war.deliveryapp.entity.tag.Tag
+import github.mik0war.deliveryapp.entity.tag.TagState
 import github.mik0war.deliveryapp.feature.getListData.dish.tags.presentation.TagsRecyclerViewAdapter
 import github.mik0war.deliveryapp.feature.getListData.dish.tags.presentation.TagsViewModel
 import javax.inject.Inject
@@ -98,32 +99,18 @@ class DishListFragment : Fragment() {
     private fun setupTagsAdapter() : TagsRecyclerViewAdapter{
 
         dishViewModel.observe(this) {
-            tagsViewModel.setTagsList(tagsViewModel.updateTagsList(it))
+            tagsViewModel.setTagsList(it)
         }
 
-        val onAddTagClickListener: (tag: Tag) -> Unit = {tag  ->
-            val newTagsList: List<Tag> = tagsViewModel.getList().toMutableList().also{
-                it.remove(tag)
-                it.add(0, Tag(tag.name, true))
-            }
-            tagsViewModel.setTagsList(newTagsList)
-            dishViewModel.getDataList(tagsViewModel.getSelectedTags())
-        }
-
-        val onRemoveTagClickListener: (tag: Tag) -> Unit = {tag ->
-            val newTagsList: List<Tag> = tagsViewModel.getList().toMutableList().also{
-                it.remove(tag)
-                it.add(Tag(tag.name, false))
-            }
-            tagsViewModel.setTagsList(newTagsList)
+        val onChangeTagClickListener: (tag: Tag, newTagState: TagState) -> Unit = { tag, state  ->
+            tagsViewModel.updateTag(tag, state)
             dishViewModel.getDataList(tagsViewModel.getSelectedTags())
         }
 
         val adapter = TagsRecyclerViewAdapter(
             tagsViewModel,
             ColorResourceProvider.Base(requireContext()),
-            onAddTagClickListener,
-            onRemoveTagClickListener
+            onChangeTagClickListener
             )
 
         tagsViewModel.observe(this){
