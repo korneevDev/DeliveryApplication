@@ -112,10 +112,11 @@ interface TagInteractor<T> {
         override fun getSelectedTags(list: List<Tag>): List<String> {
             val selectedTags = mutableListOf<String>()
             list.forEach {
+                if(it is Tag.MainSuperSelected)
+                    return listOf(it.getTagName())
                 if (it is Tag.Selected)
                     selectedTags.add(it.getTagName())
             }
-
             return selectedTags.toList()
         }
     }
