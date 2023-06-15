@@ -1,8 +1,7 @@
-package github.mik0war.deliveryapp.feature.shoppingCart.presentation
+package github.mik0war.show_cart_list.presentation
 
 import android.view.View
 import android.widget.ImageButton
-import github.mik0war.deliveryapp.R
 import github.mik0war.entity.CustomTextView
 import github.mik0war.entity.StringResourceProvider
 import github.mik0war.entity.dataModel.dishCounted.DishCountedUIModel
@@ -11,6 +10,8 @@ import github.mik0war.recycler_list.presentation.ImageLoader
 import github.mik0war.recycler_list.presentation.RecyclerViewAdapter
 import github.mik0war.recycler_list.presentation.TransferDataGetter
 import github.mik0war.recycler_list.presentation.ViewHolder
+import github.mik0war.show_cart_list.R
+import github.mik0war.recycler_list.R as R_list
 
 
 class ShowShoppingCartRecyclerViewAdapter(
@@ -61,7 +62,7 @@ class ShoppingViewHolder(
 ) {
     private val secondButton = itemView.findViewById<ImageButton>(secondButtonId)
 
-    private val nameView: CustomTextView = itemView.findViewById(R.id.objectName)
+    private val nameView: CustomTextView = itemView.findViewById(R_list.id.objectName)
     private val priceView: CustomTextView = itemView.findViewById(R.id.priceView)
     private val weightView: CustomTextView = itemView.findViewById(R.id.weightView)
     private val countView: CustomTextView = itemView.findViewById(R.id.countView)
@@ -72,9 +73,9 @@ class ShoppingViewHolder(
 
         uiModel.show(
             nameView, priceView, weightView, countView,
-            weightMeasure = stringResourceProvider.getString(R.string.weight_measure),
-            priceAddition = stringResourceProvider.getString(R.string.price_addition),
-            weightPrefix = stringResourceProvider.getString(R.string.weight_prefix)
+            weightMeasure = stringResourceProvider.getString(R_list.string.weight_measure),
+            priceAddition = stringResourceProvider.getString(R_list.string.price_addition),
+            weightPrefix = stringResourceProvider.getString(R_list.string.weight_prefix)
         )
 
     }

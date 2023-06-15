@@ -1,10 +1,10 @@
-package github.mik0war.deliveryapp.feature.shoppingCart.di
+package github.mik0war.show_cart_list.di
 
 import dagger.Binds
 import dagger.Module
 import github.mik0war.database.DishCacheModel
-import github.mik0war.deliveryapp.feature.shoppingCart.data.CacheGetDataListDataSource
-import github.mik0war.deliveryapp.feature.shoppingCart.domain.ShowShoppingCartExceptionHandler
+import github.mik0war.show_cart_list.data.CacheGetDataListDataSource
+import github.mik0war.show_cart_list.domain.ShowShoppingCartExceptionHandler
 import github.mik0war.entity.DataMapper
 import github.mik0war.entity.ExceptionHandler
 import github.mik0war.entity.StringResourceProvider

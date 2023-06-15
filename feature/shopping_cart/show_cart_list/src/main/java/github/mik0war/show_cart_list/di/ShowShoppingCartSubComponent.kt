@@ -1,7 +1,7 @@
-package github.mik0war.deliveryapp.feature.shoppingCart.di
+package github.mik0war.show_cart_list.di
 
 import dagger.Subcomponent
-import github.mik0war.deliveryapp.feature.shoppingCart.presentation.ShowShoppingCartFragment
+import github.mik0war.show_cart_list.presentation.ShowShoppingCartFragment
 
 @Subcomponent(
     modules = [
@@ -18,4 +18,8 @@ interface ShowShoppingCartSubComponent {
 
     fun inject(fragment: ShowShoppingCartFragment)
 
+}
+
+interface ShowShoppingCartSubComponentProvider{
+    fun provideShowShoppingCartSubComponent(): ShowShoppingCartSubComponent
 }

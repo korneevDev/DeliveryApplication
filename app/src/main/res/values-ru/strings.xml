@@ -13,7 +13,6 @@
 
     <string name="close_button">Кнопка закрыть</string>
     <string name="favorites_button">Кнопка избранное</string>
-    <string name="error_no_dishes_in_shopping_cart">Пустая корзина</string>
-    <string name="buy_button_text">Оплатить %d ₽</string>
-    <string name="empty_buy_button_label">Оплатить</string>
+
+
 </resources>

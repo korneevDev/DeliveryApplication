@@ -1,4 +1,4 @@
-package github.mik0war.deliveryapp.feature.shoppingCart.presentation
+package github.mik0war.show_cart_list.presentation
 
 import android.view.View
 import github.mik0war.entity.dataModel.dishCounted.DishCountedUIModel

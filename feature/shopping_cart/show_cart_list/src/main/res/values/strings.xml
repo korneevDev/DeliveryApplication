@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="error_no_dishes_in_shopping_cart">There are no dishes</string>
+
+    <string name="buy_button_text">Pay %d ₽</string>
+    <string name="empty_buy_button_label">Pay</string>
+</resources>

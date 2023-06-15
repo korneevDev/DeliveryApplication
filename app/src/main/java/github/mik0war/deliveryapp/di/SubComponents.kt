@@ -2,7 +2,7 @@ package github.mik0war.deliveryapp.di
 
 import dagger.Module
 import github.mik0war.deliveryapp.feature.getListData.di.DishSubComponent
-import github.mik0war.deliveryapp.feature.shoppingCart.di.ShowShoppingCartSubComponent
+import github.mik0war.show_cart_list.di.ShowShoppingCartSubComponent
 
 @Module(subcomponents = [
     DishSubComponent::class,

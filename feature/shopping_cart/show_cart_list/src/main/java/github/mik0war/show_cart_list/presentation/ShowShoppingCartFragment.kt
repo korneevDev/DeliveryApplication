@@ -1,4 +1,4 @@
-package github.mik0war.deliveryapp.feature.shoppingCart.presentation
+package github.mik0war.show_cart_list.presentation
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,20 +7,19 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
-import github.mik0war.deliveryapp.DeliveryApp
-import github.mik0war.deliveryapp.MainActivity
-import github.mik0war.deliveryapp.R
-import github.mik0war.recycler_list.R as R_list
-import github.mik0war.category.presentation.CategoryListFragment
+import github.mik0war.database_communication.di.FillShoppingCartSubComponentProvider
 import github.mik0war.entity.StringResourceProvider
 import github.mik0war.entity.dataModel.dishCounted.DishCountedUIModel
 import github.mik0war.recycler_list.presentation.GetDataListViewModel
 import github.mik0war.recycler_list.presentation.ImageLoader
+import github.mik0war.show_cart_list.R
+import github.mik0war.show_cart_list.di.ShowShoppingCartSubComponentProvider
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import github.mik0war.recycler_list.R as R_list
 
 class ShowShoppingCartFragment : Fragment() {
     @Inject
@@ -33,16 +32,11 @@ class ShowShoppingCartFragment : Fragment() {
     ): View = inflater.inflate(R_list.layout.fragment_list_layout, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        ((requireActivity() as MainActivity).application as DeliveryApp)
-            .appComponent.shoppingCartSubComponent().create().inject(this)
+        (requireActivity().application as ShowShoppingCartSubComponentProvider).provideShowShoppingCartSubComponent()
+            .inject(this)
         super.onViewCreated(view, savedInstanceState)
 
-        arguments?.let {
-            (requireActivity() as MainActivity)
-                .supportActionBar?.title = it.getString(CategoryListFragment.FRAGMENT_NAME_KEY)
-        }
-
-        val applyButton = view.findViewById<Button>(R.id.applyButton)
+        val applyButton = view.findViewById<Button>(R_list.id.applyButton)
         applyButton.visibility = View.VISIBLE
 
         applyButton.setOnClickListener {
@@ -53,7 +47,7 @@ class ShowShoppingCartFragment : Fragment() {
 
         fillViewModel =
             github.mik0war.database_communication.presentation.ShoppingCartCommunicationViewModelFromCart(
-                requireActivity().application as DeliveryApp
+                requireActivity().application as FillShoppingCartSubComponentProvider
             )
 
         recyclerView.adapter = setupAdapter(applyButton)

@@ -1,4 +1,4 @@
-package github.mik0war.deliveryapp.feature.shoppingCart.di
+package github.mik0war.show_cart_list.di
 
 import dagger.Module
 import dagger.Provides

@@ -1,12 +1,12 @@
-package github.mik0war.deliveryapp.feature.shoppingCart.domain
+package github.mik0war.show_cart_list.domain
 
-import github.mik0war.deliveryapp.R
 import github.mik0war.recycler_list.R as RList
 
 import github.mik0war.entity.ExceptionHandler
 import github.mik0war.entity.NoCachedDishesException
 import github.mik0war.entity.StringResourceProvider
 import github.mik0war.entity.dataModel.dishCounted.DishCounted
+import github.mik0war.show_cart_list.R
 import javax.inject.Inject
 
 class ShowShoppingCartExceptionHandler @Inject constructor(

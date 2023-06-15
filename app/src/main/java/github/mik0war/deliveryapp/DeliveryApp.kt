@@ -7,10 +7,14 @@ import github.mik0war.database_communication.di.FillShoppingCartSubComponent
 import github.mik0war.database_communication.di.FillShoppingCartSubComponentProvider
 import github.mik0war.deliveryapp.di.DeliveryComponent
 import github.mik0war.deliveryapp.di.DaggerDeliveryComponent
+import github.mik0war.show_cart_list.di.ShowShoppingCartSubComponent
+import github.mik0war.show_cart_list.di.ShowShoppingCartSubComponentProvider
 
 class DeliveryApp: Application(),
     CategorySubComponentProvider,
-    FillShoppingCartSubComponentProvider {
+    FillShoppingCartSubComponentProvider,
+    ShowShoppingCartSubComponentProvider
+{
     val appComponent: DeliveryComponent by lazy {
         DaggerDeliveryComponent.factory().create(this)
     }
@@ -20,5 +24,8 @@ class DeliveryApp: Application(),
 
     override fun provideFillShoppingCartSubComponent(): FillShoppingCartSubComponent =
         appComponent.fillCartSubComponent().create()
+
+    override fun provideShowShoppingCartSubComponent(): ShowShoppingCartSubComponent =
+        appComponent.shoppingCartSubComponent().create()
 
 }

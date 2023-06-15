@@ -4,7 +4,6 @@ import android.content.Context
 import dagger.BindsInstance
 import dagger.Component
 import github.mik0war.deliveryapp.feature.getListData.di.DishSubComponent
-import github.mik0war.deliveryapp.feature.shoppingCart.di.ShowShoppingCartSubComponent
 import github.mik0war.entity.di.MappersProvideModule
 import javax.inject.Singleton
 
@@ -24,6 +23,6 @@ interface DeliveryComponent{
     fun categorySubComponent(): github.mik0war.category.di.CategorySubComponent.Factory
     fun dishSubComponent(): DishSubComponent.Factory
     fun fillCartSubComponent(): github.mik0war.database_communication.di.FillShoppingCartSubComponent.Factory
-    fun shoppingCartSubComponent(): ShowShoppingCartSubComponent.Factory
+    fun shoppingCartSubComponent(): github.mik0war.show_cart_list.di.ShowShoppingCartSubComponent.Factory
 
 }

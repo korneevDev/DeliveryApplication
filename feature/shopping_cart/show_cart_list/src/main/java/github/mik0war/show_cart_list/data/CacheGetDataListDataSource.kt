@@ -1,4 +1,4 @@
-package github.mik0war.deliveryapp.feature.shoppingCart.data
+package github.mik0war.show_cart_list.data
 
 import github.mik0war.database.GetDishDAO
 import github.mik0war.database.DishCacheModel

@@ -22,7 +22,7 @@
 
     <fragment
         android:id="@+id/navigation_cart"
-        android:name="github.mik0war.deliveryapp.feature.shoppingCart.presentation.ShowShoppingCartFragment"
+        android:name="github.mik0war.show_cart_list.presentation.ShowShoppingCartFragment"
         android:label="@string/title_shopping_cart"
         tools:layout="@layout/fragment_list_layout" />
 </navigation>
