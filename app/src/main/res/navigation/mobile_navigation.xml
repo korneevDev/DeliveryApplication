@@ -13,7 +13,7 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_dish"
-        android:name="github.mik0war.deliveryapp.feature.getListData.presentation.DishListFragment"
+        android:name="github.mik0war.dish.presentation.DishListFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_list_layout" >
         <deepLink
