@@ -13,7 +13,7 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_dish"
-        android:name="github.mik0war.deliveryapp.feature.getListData.dish.presentation.DishListFragment"
+        android:name="github.mik0war.deliveryapp.feature.getListData.presentation.DishListFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_list_layout" >
         <deepLink
@@ -22,7 +22,7 @@
 
     <fragment
         android:id="@+id/navigation_cart"
-        android:name="github.mik0war.deliveryapp.feature.shoppingCart.show.presentation.ShowShoppingCartFragment"
+        android:name="github.mik0war.deliveryapp.feature.shoppingCart.presentation.ShowShoppingCartFragment"
         android:label="@string/title_shopping_cart"
         tools:layout="@layout/fragment_list_layout" />
 </navigation>

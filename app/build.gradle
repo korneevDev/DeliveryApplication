@@ -69,4 +69,5 @@ dependencies {
     implementation project(':core:database')
 
     implementation project(':feature:category')
+    implementation project(':feature:shopping_cart:database_communication')
 }

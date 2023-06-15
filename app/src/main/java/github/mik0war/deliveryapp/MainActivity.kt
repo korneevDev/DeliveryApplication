@@ -11,9 +11,13 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import github.mik0war.category.di.CategorySubComponent
 import github.mik0war.category.di.CategorySubComponentProvider
 import github.mik0war.category.presentation.ChangeActivityTitle
+import github.mik0war.database_communication.di.FillShoppingCartSubComponentProvider
 import github.mik0war.deliveryapp.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity(), CategorySubComponentProvider, ChangeActivityTitle {
+class MainActivity : AppCompatActivity(),
+    CategorySubComponentProvider,
+    FillShoppingCartSubComponentProvider
+    , ChangeActivityTitle {
 
     private lateinit var binding: ActivityMainBinding
     private var bottomNavigationView: BottomNavigationView? = null
@@ -61,4 +65,7 @@ class MainActivity : AppCompatActivity(), CategorySubComponentProvider, ChangeAc
 
     override fun changeTitle(newTitle: String, buttonListener: () -> Unit) {
     }
+
+    override fun provideFillShoppingCartSubComponent() =
+        (application as DeliveryApp).provideFillShoppingCartSubComponent()
 }
