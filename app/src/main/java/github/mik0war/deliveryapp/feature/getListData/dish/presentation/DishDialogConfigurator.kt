@@ -6,10 +6,10 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import github.mik0war.deliveryapp.R
-import github.mik0war.deliveryapp.entity.CustomTextView
-import github.mik0war.deliveryapp.entity.StringResourceProvider
-import github.mik0war.deliveryapp.entity.dish.DishUIModel
-import github.mik0war.deliveryapp.feature.getListData.core.presentation.ImageLoader
+import github.mik0war.entity.CustomTextView
+import github.mik0war.entity.StringResourceProvider
+import github.mik0war.entity.dataModel.dish.DishUIModel
+import github.mik0war.recycler_list.core.presentation.ImageLoader
 
 interface DishDialogConfigurator {
     fun configureDialog(

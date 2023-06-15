@@ -2,19 +2,19 @@ package github.mik0war.deliveryapp.feature.shoppingCart.fill.di
 
 import dagger.Binds
 import dagger.Module
-import github.mik0war.deliveryapp.entity.DataMapper
-import github.mik0war.deliveryapp.entity.dish.Dish
-import github.mik0war.deliveryapp.entity.dish.DishDataModel
-import github.mik0war.deliveryapp.entity.dish.DishUIModel
-import github.mik0war.deliveryapp.entity.dishCounted.DishCounted
-import github.mik0war.deliveryapp.entity.dishCounted.DishCountedDataModel
-import github.mik0war.deliveryapp.entity.dishCounted.DishCountedUIModel
 import github.mik0war.deliveryapp.feature.shoppingCart.fill.data.RepositoryImpl
 import github.mik0war.deliveryapp.feature.shoppingCart.fill.data.cache.CacheDataSource
 import github.mik0war.deliveryapp.feature.shoppingCart.fill.data.cache.DishCacheModel
 import github.mik0war.deliveryapp.feature.shoppingCart.fill.domain.Interactor
 import github.mik0war.deliveryapp.feature.shoppingCart.fill.domain.Repository
 import github.mik0war.deliveryapp.feature.shoppingCart.fill.presentation.ShoppingCartFillViewModel
+import github.mik0war.entity.DataMapper
+import github.mik0war.entity.dataModel.dish.Dish
+import github.mik0war.entity.dataModel.dish.DishDataModel
+import github.mik0war.entity.dataModel.dish.DishUIModel
+import github.mik0war.entity.dataModel.dishCounted.DishCounted
+import github.mik0war.entity.dataModel.dishCounted.DishCountedDataModel
+import github.mik0war.entity.dataModel.dishCounted.DishCountedUIModel
 
 @Module
 abstract class FillCartBindsModule {

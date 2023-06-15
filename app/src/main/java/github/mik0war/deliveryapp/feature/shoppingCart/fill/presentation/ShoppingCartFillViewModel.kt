@@ -2,10 +2,10 @@ package github.mik0war.deliveryapp.feature.shoppingCart.fill.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import github.mik0war.deliveryapp.di.MainDispatcher
-import github.mik0war.deliveryapp.entity.DataMapper
-import github.mik0war.deliveryapp.entity.Entity
 import github.mik0war.deliveryapp.feature.shoppingCart.fill.domain.Interactor
+import github.mik0war.entity.DataMapper
+import github.mik0war.entity.Entity
+import github.mik0war.entity.di.MainDispatcher
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch

@@ -1,9 +1,9 @@
 package github.mik0war.deliveryapp.feature.getListData.category.data
 
 import com.google.gson.annotations.SerializedName
-import github.mik0war.deliveryapp.entity.mapper.CategoryMapperTo
-import github.mik0war.deliveryapp.entity.Entity
-import github.mik0war.deliveryapp.entity.mapper.MapperTo
+import github.mik0war.entity.Entity
+import github.mik0war.entity.dataModel.mapper.CategoryMapperTo
+import github.mik0war.entity.dataModel.mapper.MapperTo
 
 data class CategoryListServerModel(
     @SerializedName("сategories")

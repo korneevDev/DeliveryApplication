@@ -1,9 +1,9 @@
 package github.mik0war.deliveryapp.feature.shoppingCart.show.presentation
 
 import github.mik0war.deliveryapp.DeliveryApp
-import github.mik0war.deliveryapp.entity.dishCounted.DishCountedUIModel
-import github.mik0war.deliveryapp.feature.shoppingCart.fill.presentation.ShoppingCartViewModelCommunication
 import github.mik0war.deliveryapp.feature.shoppingCart.fill.presentation.ShoppingCartFillViewModel
+import github.mik0war.deliveryapp.feature.shoppingCart.fill.presentation.ShoppingCartViewModelCommunication
+import github.mik0war.entity.dataModel.dishCounted.DishCountedUIModel
 import kotlinx.coroutines.Job
 import javax.inject.Inject
 

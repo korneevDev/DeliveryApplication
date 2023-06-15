@@ -1,11 +1,11 @@
 package github.mik0war.deliveryapp.feature.getListData.category.domain
 
 import github.mik0war.deliveryapp.R
-import github.mik0war.deliveryapp.entity.category.Category
-import github.mik0war.deliveryapp.entity.NoConnectionException
-import github.mik0war.deliveryapp.entity.ServiceUnavailableException
-import github.mik0war.deliveryapp.entity.StringResourceProvider
-import github.mik0war.deliveryapp.entity.ExceptionHandler
+import github.mik0war.entity.ExceptionHandler
+import github.mik0war.entity.NoConnectionException
+import github.mik0war.entity.ServiceUnavailableException
+import github.mik0war.entity.StringResourceProvider
+import github.mik0war.entity.dataModel.category.Category
 import javax.inject.Inject
 
 class CategoryExceptionHandler @Inject constructor(

@@ -4,15 +4,16 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.DiffUtil
-import github.mik0war.deliveryapp.entity.UIEntity
-import github.mik0war.deliveryapp.feature.getListData.core.presentation.GetList
-import github.mik0war.deliveryapp.feature.getListData.core.presentation.ObserveLiveData
-import github.mik0war.deliveryapp.entity.tag.Tag
-import github.mik0war.deliveryapp.entity.tag.TagState
 import github.mik0war.deliveryapp.feature.getListData.dish.tags.domain.TagInteractor
+import github.mik0war.entity.UIEntity
+import github.mik0war.entity.dataModel.tag.Tag
+import github.mik0war.entity.dataModel.tag.TagState
+import github.mik0war.recycler_list.core.presentation.GetList
+import github.mik0war.recycler_list.core.presentation.ObserveLiveData
 import javax.inject.Inject
 
-interface TagsViewModel<T>: ObserveLiveData<List<Tag>>, GetList<Tag> {
+interface TagsViewModel<T>: ObserveLiveData<List<Tag>>,
+    GetList<Tag> {
     fun setTagsList(list: List<UIEntity<T>>)
     fun updateTag(tag: Tag, newState: TagState)
     fun getSelectedTags(): List<String>

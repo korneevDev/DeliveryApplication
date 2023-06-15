@@ -2,21 +2,21 @@ package github.mik0war.deliveryapp.feature.getListData.dish.di
 
 import dagger.Binds
 import dagger.Module
-import github.mik0war.deliveryapp.entity.DataMapper
-import github.mik0war.deliveryapp.entity.ExceptionHandler
-import github.mik0war.deliveryapp.entity.StringResourceProvider
-import github.mik0war.deliveryapp.entity.dish.Dish
-import github.mik0war.deliveryapp.entity.dish.DishDataModel
-import github.mik0war.deliveryapp.entity.dish.DishUIModel
-import github.mik0war.deliveryapp.feature.getListData.core.data.GetDataListDataSource
-import github.mik0war.deliveryapp.feature.getListData.core.data.GetDataListListRepositoryImpl
-import github.mik0war.deliveryapp.feature.getListData.core.domain.GetDataListInteractor
-import github.mik0war.deliveryapp.feature.getListData.core.domain.GetDataListRepository
-import github.mik0war.deliveryapp.feature.getListData.core.presentation.GetDataListLiveData
-import github.mik0war.deliveryapp.feature.getListData.core.presentation.GetDataListViewModel
 import github.mik0war.deliveryapp.feature.getListData.dish.data.DishCloudGetDataListDataSource
 import github.mik0war.deliveryapp.feature.getListData.dish.data.DishServerModel
 import github.mik0war.deliveryapp.feature.getListData.dish.domain.DishExceptionHandler
+import github.mik0war.entity.DataMapper
+import github.mik0war.entity.ExceptionHandler
+import github.mik0war.entity.StringResourceProvider
+import github.mik0war.entity.dataModel.dish.Dish
+import github.mik0war.entity.dataModel.dish.DishDataModel
+import github.mik0war.entity.dataModel.dish.DishUIModel
+import github.mik0war.recycler_list.core.data.GetDataListDataSource
+import github.mik0war.recycler_list.core.data.GetDataListListRepositoryImpl
+import github.mik0war.recycler_list.core.domain.GetDataListInteractor
+import github.mik0war.recycler_list.core.domain.GetDataListRepository
+import github.mik0war.recycler_list.core.presentation.GetDataListLiveData
+import github.mik0war.recycler_list.core.presentation.GetDataListViewModel
 
 @Module
 abstract class DishBindsModule {

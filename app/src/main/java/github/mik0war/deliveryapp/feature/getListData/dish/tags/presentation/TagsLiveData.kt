@@ -4,12 +4,13 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DiffUtil
-import github.mik0war.deliveryapp.feature.getListData.core.presentation.GetList
-import github.mik0war.deliveryapp.feature.getListData.core.presentation.ObserveLiveData
-import github.mik0war.deliveryapp.entity.tag.Tag
+import github.mik0war.entity.dataModel.tag.Tag
+import github.mik0war.recycler_list.core.presentation.GetList
+import github.mik0war.recycler_list.core.presentation.ObserveLiveData
 import javax.inject.Inject
 
-interface TagsLiveData : ObserveLiveData<List<Tag>>, GetList<Tag> {
+interface TagsLiveData : ObserveLiveData<List<Tag>>,
+    GetList<Tag> {
     fun updateTagsList(tagsList: List<Tag>)
 
     class Base @Inject constructor() : TagsLiveData {

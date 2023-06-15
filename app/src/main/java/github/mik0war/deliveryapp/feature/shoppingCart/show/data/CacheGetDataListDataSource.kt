@@ -1,14 +1,15 @@
 package github.mik0war.deliveryapp.feature.shoppingCart.show.data
 
-import github.mik0war.deliveryapp.entity.DataMapper
-import github.mik0war.deliveryapp.entity.Entity
-import github.mik0war.deliveryapp.entity.NoCachedDishesException
-import github.mik0war.deliveryapp.feature.getListData.core.data.GetDataListDataSource
 import github.mik0war.deliveryapp.feature.shoppingCart.core.GetDishDAO
 import github.mik0war.deliveryapp.feature.shoppingCart.fill.data.cache.DishCacheModel
+import github.mik0war.entity.DataMapper
+import github.mik0war.entity.Entity
+import github.mik0war.entity.NoCachedDishesException
+import github.mik0war.recycler_list.core.data.GetDataListDataSource
 import javax.inject.Inject
 
-interface CacheGetDataListDataSource<T> : GetDataListDataSource<T> {
+interface CacheGetDataListDataSource<T> :
+    GetDataListDataSource<T> {
 
     class Base<R: Entity> @Inject constructor(
         private val showDishDAO: GetDishDAO,

@@ -1,8 +1,8 @@
 package github.mik0war.deliveryapp.feature.shoppingCart.show.presentation
 
 import android.view.View
-import github.mik0war.deliveryapp.entity.dishCounted.DishCountedUIModel
-import github.mik0war.deliveryapp.feature.getListData.core.presentation.TransferDataGetter
+import github.mik0war.entity.dataModel.dishCounted.DishCountedUIModel
+import github.mik0war.recycler_list.core.presentation.TransferDataGetter
 
 class ShowShoppingCartTransferDataGetter :
     TransferDataGetter<DishCountedUIModel, Pair<DishCountedUIModel, Int>> {

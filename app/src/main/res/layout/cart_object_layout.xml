@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@drawable/default_missing_image" />
 
-    <github.mik0war.deliveryapp.entity.CustomTextView
+    <github.mik0war.entity.CustomTextView
         android:id="@id/objectName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -31,7 +31,7 @@
         app:layout_constraintTop_toTopOf="@id/buttonBar"
         />
 
-    <github.mik0war.deliveryapp.entity.CustomTextView
+    <github.mik0war.entity.CustomTextView
         android:id="@+id/priceView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -44,7 +44,7 @@
         app:layout_constraintStart_toStartOf="@id/objectName"
         tools:text="700 Р"/>
 
-    <github.mik0war.deliveryapp.entity.CustomTextView
+    <github.mik0war.entity.CustomTextView
         android:id="@+id/weightView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -76,7 +76,7 @@
             android:background="@drawable/left_corners"
             android:src="@drawable/decrement_icon"
             />
-        <github.mik0war.deliveryapp.entity.CustomTextView
+        <github.mik0war.entity.CustomTextView
             android:id="@+id/countView"
             android:layout_weight="1"
             android:layout_width="0dp"

@@ -2,10 +2,10 @@ package github.mik0war.deliveryapp.feature.getListData.dish.presentation
 
 import androidx.constraintlayout.widget.ConstraintLayout
 import github.mik0war.deliveryapp.R
-import github.mik0war.deliveryapp.entity.dish.DishUIModel
-import github.mik0war.deliveryapp.feature.getListData.core.presentation.GetList
-import github.mik0war.deliveryapp.feature.getListData.core.presentation.ImageLoader
-import github.mik0war.deliveryapp.feature.getListData.core.presentation.RecyclerViewAdapter
+import github.mik0war.entity.dataModel.dish.DishUIModel
+import github.mik0war.recycler_list.core.presentation.GetList
+import github.mik0war.recycler_list.core.presentation.ImageLoader
+import github.mik0war.recycler_list.core.presentation.RecyclerViewAdapter
 
 class DishRecyclerViewAdapter(
     internetDataLiveData: GetList<DishUIModel>,

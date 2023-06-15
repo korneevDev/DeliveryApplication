@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@drawable/default_missing_image" />
 
-    <github.mik0war.deliveryapp.entity.CustomTextView
+    <github.mik0war.entity.CustomTextView
         android:id="@+id/objectName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

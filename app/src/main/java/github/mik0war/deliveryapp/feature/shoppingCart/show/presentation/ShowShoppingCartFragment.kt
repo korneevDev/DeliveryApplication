@@ -10,11 +10,11 @@ import androidx.recyclerview.widget.RecyclerView
 import github.mik0war.deliveryapp.DeliveryApp
 import github.mik0war.deliveryapp.MainActivity
 import github.mik0war.deliveryapp.R
-import github.mik0war.deliveryapp.entity.StringResourceProvider
-import github.mik0war.deliveryapp.entity.dishCounted.DishCountedUIModel
 import github.mik0war.deliveryapp.feature.getListData.category.presentation.CategoryListFragment
-import github.mik0war.deliveryapp.feature.getListData.core.presentation.GetDataListViewModel
-import github.mik0war.deliveryapp.feature.getListData.core.presentation.ImageLoader
+import github.mik0war.entity.StringResourceProvider
+import github.mik0war.entity.dataModel.dishCounted.DishCountedUIModel
+import github.mik0war.recycler_list.core.presentation.GetDataListViewModel
+import github.mik0war.recycler_list.core.presentation.ImageLoader
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.Job

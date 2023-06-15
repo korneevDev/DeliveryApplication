@@ -1,8 +1,8 @@
 package github.mik0war.deliveryapp.feature.getListData.dish.tags.domain
 
-import github.mik0war.deliveryapp.entity.UIEntity
-import github.mik0war.deliveryapp.entity.tag.Tag
-import github.mik0war.deliveryapp.entity.tag.TagState
+import github.mik0war.entity.UIEntity
+import github.mik0war.entity.dataModel.tag.Tag
+import github.mik0war.entity.dataModel.tag.TagState
 import javax.inject.Inject
 
 interface TagInteractor<T> {

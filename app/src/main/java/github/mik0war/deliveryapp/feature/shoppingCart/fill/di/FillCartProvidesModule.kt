@@ -2,14 +2,14 @@ package github.mik0war.deliveryapp.feature.shoppingCart.fill.di
 
 import dagger.Module
 import dagger.Provides
-import github.mik0war.deliveryapp.entity.DataMapper
-import github.mik0war.deliveryapp.entity.dish.DishDataModel
-import github.mik0war.deliveryapp.entity.dishCounted.DishCountedDataModel
-import github.mik0war.deliveryapp.entity.mapper.DishCountedMapperTo
-import github.mik0war.deliveryapp.entity.mapper.DishMapperTo
 import github.mik0war.deliveryapp.feature.shoppingCart.core.DishDAO
 import github.mik0war.deliveryapp.feature.shoppingCart.core.DishDataBase
 import github.mik0war.deliveryapp.feature.shoppingCart.fill.data.cache.DishCacheModel
+import github.mik0war.entity.DataMapper
+import github.mik0war.entity.dataModel.dish.DishDataModel
+import github.mik0war.entity.dataModel.dishCounted.DishCountedDataModel
+import github.mik0war.entity.dataModel.mapper.DishCountedMapperTo
+import github.mik0war.entity.dataModel.mapper.DishMapperTo
 
 @Module
 class FillCartProvidesModule {

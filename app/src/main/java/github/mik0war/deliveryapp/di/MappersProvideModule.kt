@@ -2,20 +2,19 @@ package github.mik0war.deliveryapp.di
 
 import dagger.Module
 import dagger.Provides
-import github.mik0war.deliveryapp.entity.category.Category
-import github.mik0war.deliveryapp.entity.category.CategoryUIModel
-import github.mik0war.deliveryapp.entity.dish.Dish
-import github.mik0war.deliveryapp.entity.dish.DishDataModel
-import github.mik0war.deliveryapp.entity.dish.DishUIModel
-import github.mik0war.deliveryapp.entity.dishCounted.DishCounted
-import github.mik0war.deliveryapp.entity.dishCounted.DishCountedDataModel
-import github.mik0war.deliveryapp.entity.dishCounted.DishCountedUIModel
-import github.mik0war.deliveryapp.entity.mapper.CategoryMapperTo
-import github.mik0war.deliveryapp.entity.mapper.DishCountedMapperTo
-import github.mik0war.deliveryapp.entity.mapper.DishMapperTo
-import github.mik0war.deliveryapp.entity.mapper.MapperTo
 import github.mik0war.deliveryapp.feature.shoppingCart.fill.data.cache.DishCacheModel
-import javax.inject.Qualifier
+import github.mik0war.entity.dataModel.category.Category
+import github.mik0war.entity.dataModel.category.CategoryUIModel
+import github.mik0war.entity.dataModel.dish.Dish
+import github.mik0war.entity.dataModel.dish.DishDataModel
+import github.mik0war.entity.dataModel.dish.DishUIModel
+import github.mik0war.entity.dataModel.dishCounted.DishCounted
+import github.mik0war.entity.dataModel.dishCounted.DishCountedDataModel
+import github.mik0war.entity.dataModel.dishCounted.DishCountedUIModel
+import github.mik0war.entity.dataModel.mapper.CategoryMapperTo
+import github.mik0war.entity.dataModel.mapper.DishCountedMapperTo
+import github.mik0war.entity.dataModel.mapper.DishMapperTo
+import github.mik0war.entity.dataModel.mapper.MapperTo
 import javax.inject.Singleton
 
 @Module
@@ -23,7 +22,8 @@ class MappersProvideModule {
 
     @Singleton
     @Provides
-    fun provideMapperToCategory(): MapperTo<Category> = object : CategoryMapperTo<Category> {
+    fun provideMapperToCategory(): MapperTo<Category> =
+        object : CategoryMapperTo<Category> {
         override fun map(id: Int, name: String, imageUrl: String) =
             if (id == 0 && imageUrl.isEmpty())
                 Category.Error(name)
@@ -92,7 +92,8 @@ class MappersProvideModule {
 
     @Singleton
     @Provides
-    fun provideMapperToDish(): MapperTo<Dish> = object : DishMapperTo<Dish> {
+    fun provideMapperToDish(): MapperTo<Dish> =
+        object : DishMapperTo<Dish> {
 
         override fun map(
             id: Int,

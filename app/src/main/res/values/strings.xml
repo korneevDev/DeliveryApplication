@@ -14,7 +14,6 @@
     <string name="price_addition" translatable="false">₽</string>
     <string name="weight_measure">g</string>
     <string name="weight_prefix" translatable="false">·</string>
-    <string name="applyButtonLabel">Add to cart</string>
     <string name="close_button">Close button</string>
     <string name="favorites_button">Favorites button</string>
     <string name="error_no_dishes_in_shopping_cart">There are no dishes</string>

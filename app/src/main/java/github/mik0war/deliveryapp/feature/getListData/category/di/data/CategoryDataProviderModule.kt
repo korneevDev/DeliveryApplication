@@ -2,11 +2,11 @@ package github.mik0war.deliveryapp.feature.getListData.category.di.data
 
 import dagger.Module
 import dagger.Provides
-import github.mik0war.deliveryapp.entity.mapper.CategoryMapperTo
-import github.mik0war.deliveryapp.entity.category.CategoryDataModel
 import github.mik0war.deliveryapp.feature.getListData.category.data.CategoryServerModel
 import github.mik0war.deliveryapp.feature.getListData.category.data.CategoryService
-import github.mik0war.deliveryapp.entity.DataMapper
+import github.mik0war.entity.DataMapper
+import github.mik0war.entity.dataModel.category.CategoryDataModel
+import github.mik0war.entity.dataModel.mapper.CategoryMapperTo
 import retrofit2.Retrofit
 
 @Module

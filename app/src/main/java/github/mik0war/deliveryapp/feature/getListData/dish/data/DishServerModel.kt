@@ -1,9 +1,9 @@
 package github.mik0war.deliveryapp.feature.getListData.dish.data
 
 import com.google.gson.annotations.SerializedName
-import github.mik0war.deliveryapp.entity.Entity
-import github.mik0war.deliveryapp.entity.mapper.DishMapperTo
-import github.mik0war.deliveryapp.entity.mapper.MapperTo
+import github.mik0war.entity.Entity
+import github.mik0war.entity.dataModel.mapper.DishMapperTo
+import github.mik0war.entity.dataModel.mapper.MapperTo
 
 data class DishListServerModel(
     @SerializedName("dishes")

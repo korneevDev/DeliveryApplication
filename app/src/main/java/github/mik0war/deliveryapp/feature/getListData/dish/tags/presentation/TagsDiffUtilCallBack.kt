@@ -1,7 +1,7 @@
 package github.mik0war.deliveryapp.feature.getListData.dish.tags.presentation
 
 import androidx.recyclerview.widget.DiffUtil
-import github.mik0war.deliveryapp.entity.tag.Tag
+import github.mik0war.entity.dataModel.tag.Tag
 
 class TagsDiffUtilCallBack(
     private val oldList: List<Tag>,

@@ -2,15 +2,15 @@ package github.mik0war.deliveryapp.feature.getListData.category.di.domain
 
 import dagger.Binds
 import dagger.Module
-import github.mik0war.deliveryapp.entity.DataMapper
-import github.mik0war.deliveryapp.entity.ExceptionHandler
-import github.mik0war.deliveryapp.entity.StringResourceProvider
-import github.mik0war.deliveryapp.entity.category.Category
-import github.mik0war.deliveryapp.entity.category.CategoryDataModel
 import github.mik0war.deliveryapp.feature.getListData.category.domain.CategoryExceptionHandler
-import github.mik0war.deliveryapp.feature.getListData.core.data.GetDataListListRepositoryImpl
-import github.mik0war.deliveryapp.feature.getListData.core.domain.GetDataListInteractor
-import github.mik0war.deliveryapp.feature.getListData.core.domain.GetDataListRepository
+import github.mik0war.entity.DataMapper
+import github.mik0war.entity.ExceptionHandler
+import github.mik0war.entity.StringResourceProvider
+import github.mik0war.entity.dataModel.category.Category
+import github.mik0war.entity.dataModel.category.CategoryDataModel
+import github.mik0war.recycler_list.core.data.GetDataListListRepositoryImpl
+import github.mik0war.recycler_list.core.domain.GetDataListInteractor
+import github.mik0war.recycler_list.core.domain.GetDataListRepository
 
 @Module
 abstract class CategoryDomainBindsModule {

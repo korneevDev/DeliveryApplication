@@ -5,11 +5,12 @@ import androidx.room.Room
 import dagger.Module
 import dagger.Provides
 import github.mik0war.deliveryapp.feature.shoppingCart.core.DishDataBase
+import github.mik0war.entity.di.IODispatcher
+import github.mik0war.entity.di.MainDispatcher
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import javax.inject.Qualifier
 import javax.inject.Singleton
 
 @Module
@@ -37,11 +38,3 @@ class CoreModule {
 
 
 }
-
-@Qualifier
-@Retention(AnnotationRetention.BINARY)
-annotation class IODispatcher
-
-@Qualifier
-@Retention(AnnotationRetention.BINARY)
-annotation class MainDispatcher

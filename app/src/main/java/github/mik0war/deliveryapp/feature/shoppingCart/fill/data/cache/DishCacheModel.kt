@@ -3,10 +3,10 @@ package github.mik0war.deliveryapp.feature.shoppingCart.fill.data.cache
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import github.mik0war.deliveryapp.entity.mapper.DishCountedMapperTo
-import github.mik0war.deliveryapp.entity.mapper.DishMapperTo
-import github.mik0war.deliveryapp.entity.mapper.MapperTo
-import github.mik0war.deliveryapp.entity.Entity as MyEntity
+import github.mik0war.entity.dataModel.mapper.DishCountedMapperTo
+import github.mik0war.entity.dataModel.mapper.DishMapperTo
+import github.mik0war.entity.dataModel.mapper.MapperTo
+import github.mik0war.entity.Entity as ProjectEntity
 
 @Entity(tableName = "dish")
 data class DishCacheModel(
@@ -17,7 +17,7 @@ data class DishCacheModel(
     @ColumnInfo(name = "description") val description: String,
     @ColumnInfo(name = "image_url") val image_url: String,
     @ColumnInfo(name = "tags") val tags: List<String>,
-) : MyEntity {
+) : ProjectEntity {
     @ColumnInfo(name = "count") var count: Int = 0
     fun updateCount(count: Int) = this.also { it.count += count }
 

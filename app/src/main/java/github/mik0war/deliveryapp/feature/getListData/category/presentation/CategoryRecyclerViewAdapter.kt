@@ -2,10 +2,10 @@ package github.mik0war.deliveryapp.feature.getListData.category.presentation
 
 import androidx.constraintlayout.widget.ConstraintLayout
 import github.mik0war.deliveryapp.R
-import github.mik0war.deliveryapp.entity.category.CategoryUIModel
-import github.mik0war.deliveryapp.feature.getListData.core.presentation.GetList
-import github.mik0war.deliveryapp.feature.getListData.core.presentation.ImageLoader
-import github.mik0war.deliveryapp.feature.getListData.core.presentation.RecyclerViewAdapter
+import github.mik0war.entity.dataModel.category.CategoryUIModel
+import github.mik0war.recycler_list.core.presentation.GetList
+import github.mik0war.recycler_list.core.presentation.ImageLoader
+import github.mik0war.recycler_list.core.presentation.RecyclerViewAdapter
 
 class CategoryRecyclerViewAdapter(
     internetDataLiveData: GetList<CategoryUIModel>,

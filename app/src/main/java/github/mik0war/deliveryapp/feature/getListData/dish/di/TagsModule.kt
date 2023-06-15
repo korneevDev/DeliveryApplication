@@ -2,10 +2,10 @@ package github.mik0war.deliveryapp.feature.getListData.dish.di
 
 import dagger.Binds
 import dagger.Module
-import github.mik0war.deliveryapp.entity.dish.DishUIModel
 import github.mik0war.deliveryapp.feature.getListData.dish.tags.domain.TagInteractor
 import github.mik0war.deliveryapp.feature.getListData.dish.tags.presentation.TagsLiveData
 import github.mik0war.deliveryapp.feature.getListData.dish.tags.presentation.TagsViewModel
+import github.mik0war.entity.dataModel.dish.DishUIModel
 
 @Module
 abstract class TagsModule {

@@ -1,7 +1,7 @@
 package github.mik0war.deliveryapp.feature.shoppingCart.fill.domain
 
-import github.mik0war.deliveryapp.entity.DataMapper
-import github.mik0war.deliveryapp.entity.Entity
+import github.mik0war.entity.DataMapper
+import github.mik0war.entity.Entity
 import javax.inject.Inject
 
 interface Interactor<T> {

@@ -1,8 +1,8 @@
 package github.mik0war.deliveryapp.feature.getListData.dish.data
 
-import github.mik0war.deliveryapp.entity.DataMapper
-import github.mik0war.deliveryapp.entity.dish.DishDataModel
-import github.mik0war.deliveryapp.feature.getListData.core.data.CloudGetDataListDataSource
+import github.mik0war.entity.DataMapper
+import github.mik0war.entity.dataModel.dish.DishDataModel
+import github.mik0war.recycler_list.core.data.CloudGetDataListDataSource
 import javax.inject.Inject
 
 class DishCloudGetDataListDataSource @Inject constructor(

@@ -3,14 +3,14 @@ package github.mik0war.deliveryapp.feature.shoppingCart.show.presentation
 import android.view.View
 import android.widget.ImageButton
 import github.mik0war.deliveryapp.R
-import github.mik0war.deliveryapp.entity.CustomTextView
-import github.mik0war.deliveryapp.entity.StringResourceProvider
-import github.mik0war.deliveryapp.entity.dishCounted.DishCountedUIModel
-import github.mik0war.deliveryapp.feature.getListData.core.presentation.GetList
-import github.mik0war.deliveryapp.feature.getListData.core.presentation.ImageLoader
-import github.mik0war.deliveryapp.feature.getListData.core.presentation.RecyclerViewAdapter
-import github.mik0war.deliveryapp.feature.getListData.core.presentation.TransferDataGetter
-import github.mik0war.deliveryapp.feature.getListData.core.presentation.ViewHolder
+import github.mik0war.entity.CustomTextView
+import github.mik0war.entity.StringResourceProvider
+import github.mik0war.entity.dataModel.dishCounted.DishCountedUIModel
+import github.mik0war.recycler_list.core.presentation.GetList
+import github.mik0war.recycler_list.core.presentation.ImageLoader
+import github.mik0war.recycler_list.core.presentation.RecyclerViewAdapter
+import github.mik0war.recycler_list.core.presentation.TransferDataGetter
+import github.mik0war.recycler_list.core.presentation.ViewHolder
 
 
 class ShowShoppingCartRecyclerViewAdapter(

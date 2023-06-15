@@ -2,21 +2,21 @@ package github.mik0war.deliveryapp.feature.shoppingCart.show.di
 
 import dagger.Binds
 import dagger.Module
-import github.mik0war.deliveryapp.entity.DataMapper
-import github.mik0war.deliveryapp.entity.ExceptionHandler
-import github.mik0war.deliveryapp.entity.StringResourceProvider
-import github.mik0war.deliveryapp.entity.dishCounted.DishCounted
-import github.mik0war.deliveryapp.entity.dishCounted.DishCountedDataModel
-import github.mik0war.deliveryapp.entity.dishCounted.DishCountedUIModel
-import github.mik0war.deliveryapp.feature.getListData.core.data.GetDataListDataSource
-import github.mik0war.deliveryapp.feature.getListData.core.data.GetDataListListRepositoryImpl
-import github.mik0war.deliveryapp.feature.getListData.core.domain.GetDataListInteractor
-import github.mik0war.deliveryapp.feature.getListData.core.domain.GetDataListRepository
-import github.mik0war.deliveryapp.feature.getListData.core.presentation.GetDataListLiveData
-import github.mik0war.deliveryapp.feature.getListData.core.presentation.GetDataListViewModel
 import github.mik0war.deliveryapp.feature.shoppingCart.fill.data.cache.DishCacheModel
 import github.mik0war.deliveryapp.feature.shoppingCart.show.data.CacheGetDataListDataSource
 import github.mik0war.deliveryapp.feature.shoppingCart.show.domain.ShowShoppingCartExceptionHandler
+import github.mik0war.entity.DataMapper
+import github.mik0war.entity.ExceptionHandler
+import github.mik0war.entity.StringResourceProvider
+import github.mik0war.entity.dataModel.dishCounted.DishCounted
+import github.mik0war.entity.dataModel.dishCounted.DishCountedDataModel
+import github.mik0war.entity.dataModel.dishCounted.DishCountedUIModel
+import github.mik0war.recycler_list.core.data.GetDataListDataSource
+import github.mik0war.recycler_list.core.data.GetDataListListRepositoryImpl
+import github.mik0war.recycler_list.core.domain.GetDataListInteractor
+import github.mik0war.recycler_list.core.domain.GetDataListRepository
+import github.mik0war.recycler_list.core.presentation.GetDataListLiveData
+import github.mik0war.recycler_list.core.presentation.GetDataListViewModel
 
 @Module
 abstract class ShowCartBindsModule {
