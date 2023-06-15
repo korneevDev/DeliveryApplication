@@ -1,10 +1,10 @@
-package github.mik0war.deliveryapp.di
+package github.mik0war.database.di
 
 import android.content.Context
 import androidx.room.Room
 import dagger.Module
 import dagger.Provides
-import github.mik0war.deliveryapp.feature.shoppingCart.core.DishDataBase
+import github.mik0war.database.DishDataBase
 import github.mik0war.entity.di.IODispatcher
 import github.mik0war.entity.di.MainDispatcher
 import kotlinx.coroutines.CoroutineDispatcher

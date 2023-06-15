@@ -1,4 +1,4 @@
-package github.mik0war.deliveryapp.feature.shoppingCart.fill.data.cache
+package github.mik0war.database
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

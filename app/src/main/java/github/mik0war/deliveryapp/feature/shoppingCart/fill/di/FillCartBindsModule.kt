@@ -2,11 +2,11 @@ package github.mik0war.deliveryapp.feature.shoppingCart.fill.di
 
 import dagger.Binds
 import dagger.Module
-import github.mik0war.deliveryapp.feature.shoppingCart.fill.data.RepositoryImpl
+import github.mik0war.deliveryapp.feature.shoppingCart.fill.data.FillCartRepositoryImpl
 import github.mik0war.deliveryapp.feature.shoppingCart.fill.data.cache.CacheDataSource
-import github.mik0war.deliveryapp.feature.shoppingCart.fill.data.cache.DishCacheModel
+import github.mik0war.database.DishCacheModel
 import github.mik0war.deliveryapp.feature.shoppingCart.fill.domain.Interactor
-import github.mik0war.deliveryapp.feature.shoppingCart.fill.domain.Repository
+import github.mik0war.deliveryapp.feature.shoppingCart.fill.domain.FillCartRepository
 import github.mik0war.deliveryapp.feature.shoppingCart.fill.presentation.ShoppingCartFillViewModel
 import github.mik0war.entity.DataMapper
 import github.mik0war.entity.dataModel.dish.Dish
@@ -19,8 +19,8 @@ import github.mik0war.entity.dataModel.dishCounted.DishCountedUIModel
 @Module
 abstract class FillCartBindsModule {
     @Binds
-    abstract fun bindRepo(repository: RepositoryImpl<DishDataModel, DishCacheModel>):
-            Repository<DishDataModel>
+    abstract fun bindRepo(repository: FillCartRepositoryImpl<DishDataModel, DishCacheModel>):
+            FillCartRepository<DishDataModel>
 
     @Binds
     abstract fun bindCacheDataSource(cacheDataSource: CacheDataSource.Base):
@@ -46,8 +46,8 @@ abstract class FillCartBindsModule {
 
 
     @Binds
-    abstract fun bindRepoCounted(repository: RepositoryImpl<DishCountedDataModel, DishCacheModel>):
-            Repository<DishCountedDataModel>
+    abstract fun bindRepoCounted(repository: FillCartRepositoryImpl<DishCountedDataModel, DishCacheModel>):
+            FillCartRepository<DishCountedDataModel>
     @Binds
     abstract fun bindInteractorCounted(interactor: Interactor.Base<DishCounted, DishCountedDataModel>):
             Interactor<DishCounted>

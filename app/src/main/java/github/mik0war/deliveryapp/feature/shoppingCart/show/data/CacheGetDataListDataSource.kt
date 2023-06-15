@@ -1,7 +1,7 @@
 package github.mik0war.deliveryapp.feature.shoppingCart.show.data
 
-import github.mik0war.deliveryapp.feature.shoppingCart.core.GetDishDAO
-import github.mik0war.deliveryapp.feature.shoppingCart.fill.data.cache.DishCacheModel
+import github.mik0war.database.GetDishDAO
+import github.mik0war.database.DishCacheModel
 import github.mik0war.entity.DataMapper
 import github.mik0war.entity.Entity
 import github.mik0war.entity.NoCachedDishesException

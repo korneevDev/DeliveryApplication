@@ -1,12 +1,12 @@
 package github.mik0war.deliveryapp.data
 
 import github.mik0war.deliveryapp.core.data.DataModelMapper
-import github.mik0war.deliveryapp.entity.NoConnectionException
-import github.mik0war.deliveryapp.entity.ServiceUnavailableException
-import github.mik0war.deliveryapp.entity.category.CategoryDataModel
-import github.mik0war.deliveryapp.entity.mapper.CategoryMapperTo
 import github.mik0war.deliveryapp.feature.getListData.category.data.CategoryCloudGetDataListDataSource
 import github.mik0war.deliveryapp.feature.getListData.category.data.TestCategoryService
+import github.mik0war.entity.NoConnectionException
+import github.mik0war.entity.ServiceUnavailableException
+import github.mik0war.entity.dataModel.category.CategoryDataModel
+import github.mik0war.entity.dataModel.mapper.CategoryMapperTo
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals
 import org.junit.Test

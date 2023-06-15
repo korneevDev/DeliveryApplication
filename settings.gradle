@@ -16,3 +16,4 @@ rootProject.name = "DeliveryApp"
 include ':app'
 include ':core:recycler_list'
 include ':core:entity'
+include ':core:database'

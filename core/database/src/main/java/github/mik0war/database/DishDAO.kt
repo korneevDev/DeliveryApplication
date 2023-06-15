@@ -1,11 +1,10 @@
-package github.mik0war.deliveryapp.feature.shoppingCart.core
+package github.mik0war.database
 
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
-import github.mik0war.deliveryapp.feature.shoppingCart.fill.data.cache.DishCacheModel
 
 @Dao
 interface DishDAO {

@@ -1,8 +1,7 @@
-package github.mik0war.deliveryapp.di
+package github.mik0war.entity.di
 
 import dagger.Module
 import dagger.Provides
-import github.mik0war.deliveryapp.feature.shoppingCart.fill.data.cache.DishCacheModel
 import github.mik0war.entity.dataModel.category.Category
 import github.mik0war.entity.dataModel.category.CategoryUIModel
 import github.mik0war.entity.dataModel.dish.Dish
@@ -30,38 +29,6 @@ class MappersProvideModule {
             else
                 Category.Success(id, name, imageUrl)
     }
-
-    @Singleton
-    @Provides
-    fun provideMapperToCacheDataModel(): DishMapperTo<DishCacheModel> =
-        object : DishMapperTo<DishCacheModel> {
-            override fun map(
-                id: Int,
-                name: String,
-                price: Int,
-                weight: Int,
-                description: String,
-                image_url: String,
-                tags: List<String>
-            ) = DishCacheModel(id, name, price, weight, description, image_url, tags)
-        }
-
-    @Singleton
-    @Provides
-    fun provideCountedMapperToCacheDataModel(): DishCountedMapperTo<DishCacheModel> =
-        object : DishCountedMapperTo<DishCacheModel> {
-            override fun map(
-                id: Int,
-                name: String,
-                price: Int,
-                weight: Int,
-                description: String,
-                image_url: String,
-                tags: List<String>,
-                count: Int
-            ) = DishCacheModel(id, name, price, weight, description, image_url, tags)
-                .also { it.count = count }
-        }
 
     @Singleton
     @Provides

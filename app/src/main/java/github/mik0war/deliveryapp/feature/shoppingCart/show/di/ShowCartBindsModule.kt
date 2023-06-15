@@ -2,7 +2,7 @@ package github.mik0war.deliveryapp.feature.shoppingCart.show.di
 
 import dagger.Binds
 import dagger.Module
-import github.mik0war.deliveryapp.feature.shoppingCart.fill.data.cache.DishCacheModel
+import github.mik0war.database.DishCacheModel
 import github.mik0war.deliveryapp.feature.shoppingCart.show.data.CacheGetDataListDataSource
 import github.mik0war.deliveryapp.feature.shoppingCart.show.domain.ShowShoppingCartExceptionHandler
 import github.mik0war.entity.DataMapper

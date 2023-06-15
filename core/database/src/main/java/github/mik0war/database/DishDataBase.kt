@@ -1,11 +1,10 @@
-package github.mik0war.deliveryapp.feature.shoppingCart.core
+package github.mik0war.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverter
 import androidx.room.TypeConverters
 import com.google.gson.Gson
-import github.mik0war.deliveryapp.feature.shoppingCart.fill.data.cache.DishCacheModel
 
 
 @Database(

@@ -2,8 +2,8 @@ package github.mik0war.deliveryapp.feature.shoppingCart.show.di
 
 import dagger.Module
 import dagger.Provides
-import github.mik0war.deliveryapp.feature.shoppingCart.core.DishDataBase
-import github.mik0war.deliveryapp.feature.shoppingCart.core.GetDishDAO
+import github.mik0war.database.DishDataBase
+import github.mik0war.database.GetDishDAO
 import github.mik0war.entity.DataMapper
 import github.mik0war.entity.dataModel.dish.Dish
 import github.mik0war.entity.dataModel.dish.DishDataModel

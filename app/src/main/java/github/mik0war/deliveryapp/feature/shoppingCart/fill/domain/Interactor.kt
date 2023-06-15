@@ -9,14 +9,14 @@ interface Interactor<T> {
     suspend fun clearCart()
 
     class Base<S : Entity, R : Entity> @Inject constructor(
-        private val repository: Repository<R>,
+        private val fillCartRepository: FillCartRepository<R>,
         private val mapper: DataMapper<S, R>
     ) : Interactor<S> {
         override suspend fun addDishToCart(dish: S, countChange: Int) =
-            repository.saveDish(mapper.map(dish), countChange)
+            fillCartRepository.saveDish(mapper.map(dish), countChange)
 
         override suspend fun clearCart() {
-            repository.clearTable()
+            fillCartRepository.clearTable()
         }
     }
 }

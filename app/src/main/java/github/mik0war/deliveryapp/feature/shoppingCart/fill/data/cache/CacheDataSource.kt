@@ -1,6 +1,6 @@
 package github.mik0war.deliveryapp.feature.shoppingCart.fill.data.cache
 
-import github.mik0war.deliveryapp.feature.shoppingCart.core.DishDAO
+import github.mik0war.database.DishDAO
 import javax.inject.Inject
 
 interface CacheDataSource<T> {
@@ -9,8 +9,8 @@ interface CacheDataSource<T> {
 
     class Base @Inject constructor(
         private val dishDAO: DishDAO,
-    ): CacheDataSource<DishCacheModel> {
-        override fun changeDishCount(dish: DishCacheModel, count: Int) {
+    ): CacheDataSource<github.mik0war.database.DishCacheModel> {
+        override fun changeDishCount(dish: github.mik0war.database.DishCacheModel, count: Int) {
             val dishFromDB = dishDAO.getDishByID(dish.id)
 
             if(dishFromDB == null) {

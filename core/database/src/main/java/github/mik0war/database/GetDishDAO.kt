@@ -1,8 +1,7 @@
-package github.mik0war.deliveryapp.feature.shoppingCart.core
+package github.mik0war.database
 
 import androidx.room.Dao
 import androidx.room.Query
-import github.mik0war.deliveryapp.feature.shoppingCart.fill.data.cache.DishCacheModel
 
 @Dao
 interface GetDishDAO {
