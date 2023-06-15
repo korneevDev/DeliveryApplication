@@ -2,22 +2,18 @@ package github.mik0war.deliveryapp
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.forEachIndexed
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import github.mik0war.category.di.CategorySubComponent
-import github.mik0war.category.di.CategorySubComponentProvider
 import github.mik0war.category.presentation.ChangeActivityTitle
-import github.mik0war.database_communication.di.FillShoppingCartSubComponentProvider
 import github.mik0war.deliveryapp.databinding.ActivityMainBinding
+import github.mik0war.dish.presentation.BottomNavigationSetSelected
 
 class MainActivity : AppCompatActivity(),
-    CategorySubComponentProvider,
-    FillShoppingCartSubComponentProvider
-    , ChangeActivityTitle {
+    BottomNavigationSetSelected,
+    ChangeActivityTitle {
 
     private lateinit var binding: ActivityMainBinding
     private var bottomNavigationView: BottomNavigationView? = null
@@ -43,29 +39,12 @@ class MainActivity : AppCompatActivity(),
         bottomNavigationView?.setupWithNavController(navController)
     }
 
-    fun setBottomNavigationViewItemSelected(itemId: Int){
-        var position: Int? = null
-
-        bottomNavigationView?.let {
-            it.menu.forEachIndexed { index, item ->
-                if (item.itemId == itemId)
-                    position = index
-            }
-        }
-
-        position?.let{ pos ->
+    override fun setBottomNavigationViewItemSelected(position: Int){
             bottomNavigationView?.let{
-                it.menu.getItem(pos).isChecked = true
+                it.menu.getItem(position).isChecked = true
             }
-        }
     }
-
-    override fun provideCategorySubComponent(): CategorySubComponent =
-        (application as DeliveryApp).provideCategorySubComponent()
 
     override fun changeTitle(newTitle: String, buttonListener: () -> Unit) {
     }
-
-    override fun provideFillShoppingCartSubComponent() =
-        (application as DeliveryApp).provideFillShoppingCartSubComponent()
 }

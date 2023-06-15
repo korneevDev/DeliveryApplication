@@ -43,7 +43,8 @@ class DishListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-  //      (requireActivity() as MainActivity).setBottomNavigationViewItemSelected(R.id.navigation_home)
+        (requireActivity() as BottomNavigationSetSelected)
+            .setBottomNavigationViewItemSelected(0)
 
         val recyclerView = view.findViewById<RecyclerView>(R_listModule.id.objectList)
 

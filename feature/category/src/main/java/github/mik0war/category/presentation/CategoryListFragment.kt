@@ -27,16 +27,12 @@ class CategoryListFragment : Fragment() {
     ): View = inflater.inflate(CoreR.layout.fragment_list_layout, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        (context as CategorySubComponentProvider).provideCategorySubComponent().inject(this)
+        (requireActivity().application as CategorySubComponentProvider).provideCategorySubComponent().inject(this)
         super.onViewCreated(view, savedInstanceState)
 
         view.findViewById<RecyclerView>(CoreR.id.objectList).adapter = setupAdapter()
 
         categoryViewModel.getDataList()
-    }
-
-    companion object{
-        const val FRAGMENT_NAME_KEY = "FRAGMENT_KEY"
     }
 
     private fun setupAdapter(): CategoryRecyclerViewAdapter {
