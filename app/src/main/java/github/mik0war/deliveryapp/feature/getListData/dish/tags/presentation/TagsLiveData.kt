@@ -5,8 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DiffUtil
 import github.mik0war.entity.dataModel.tag.Tag
-import github.mik0war.recycler_list.core.presentation.GetList
-import github.mik0war.recycler_list.core.presentation.ObserveLiveData
+import github.mik0war.recycler_list.presentation.GetList
+import github.mik0war.recycler_list.presentation.ObserveLiveData
 import javax.inject.Inject
 
 interface TagsLiveData : ObserveLiveData<List<Tag>>,

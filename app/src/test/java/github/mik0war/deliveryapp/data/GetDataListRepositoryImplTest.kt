@@ -1,11 +1,12 @@
 package github.mik0war.deliveryapp.data
 
 import github.mik0war.deliveryapp.core.data.DataModelMapper
-import github.mik0war.deliveryapp.feature.getListData.category.data.CategoryCloudGetDataListDataSource
-import github.mik0war.deliveryapp.feature.getListData.category.data.TestCategoryService
+import github.mik0war.category.data.CategoryCloudGetDataListDataSource
+import github.mik0war.category.data.TestCategoryService
 import github.mik0war.entity.NoConnectionException
 import github.mik0war.entity.ServiceUnavailableException
 import github.mik0war.entity.dataModel.category.CategoryDataModel
+import github.mik0war.recycler_list.data.GetDataListListRepositoryImpl
 import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert
@@ -14,7 +15,7 @@ import org.junit.Test
 class GetDataListRepositoryImplTest {
     @Test
     fun `get categories test`() = runTest {
-        val repository = github.mik0war.recycler_list.core.data.GetDataListListRepositoryImpl(
+        val repository = GetDataListListRepositoryImpl(
             CategoryCloudGetDataListDataSource(
                 TestCategoryService(),
                 DataModelMapper(MapperToCategoryDataModel())

@@ -1,6 +1,8 @@
 package github.mik0war.deliveryapp.feature.shoppingCart.show.domain
 
 import github.mik0war.deliveryapp.R
+import github.mik0war.recycler_list.R as RList
+
 import github.mik0war.entity.ExceptionHandler
 import github.mik0war.entity.NoCachedDishesException
 import github.mik0war.entity.StringResourceProvider
@@ -17,7 +19,7 @@ class ShowShoppingCartExceptionHandler @Inject constructor(
             else ->
                 DishCounted.Error(
                     exception.message
-                        ?: stringContext.getString(R.string.error_message_unknown_error)
+                        ?: stringContext.getString(RList.string.error_message_unknown_error)
                 )
         }
 }

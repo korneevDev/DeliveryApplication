@@ -8,12 +8,15 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import github.mik0war.category.di.CategorySubComponent
+import github.mik0war.category.di.CategorySubComponentProvider
+import github.mik0war.category.presentation.ChangeActivityTitle
 import github.mik0war.deliveryapp.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), CategorySubComponentProvider, ChangeActivityTitle {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var bottomNavigationView: BottomNavigationView
+    private var bottomNavigationView: BottomNavigationView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,17 +36,29 @@ class MainActivity : AppCompatActivity() {
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
-        bottomNavigationView.setupWithNavController(navController)
+        bottomNavigationView?.setupWithNavController(navController)
     }
 
     fun setBottomNavigationViewItemSelected(itemId: Int){
         var position: Int? = null
 
-        bottomNavigationView.menu.forEachIndexed { index, item ->
-            if(item.itemId == itemId)
-                position = index
+        bottomNavigationView?.let {
+            it.menu.forEachIndexed { index, item ->
+                if (item.itemId == itemId)
+                    position = index
+            }
         }
 
-        position?.let{bottomNavigationView.menu.getItem(it).isChecked = true}
+        position?.let{ pos ->
+            bottomNavigationView?.let{
+                it.menu.getItem(pos).isChecked = true
+            }
+        }
+    }
+
+    override fun provideCategorySubComponent(): CategorySubComponent =
+        (application as DeliveryApp).provideCategorySubComponent()
+
+    override fun changeTitle(newTitle: String, buttonListener: () -> Unit) {
     }
 }

@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="applyButtonLabel">Добавить в карзину</string>
+
+    <string name="error_message_service_unavailable">Сервис недоступен</string>
+    <string name="error_message_no_connection">Нет подключения к интернету</string>
+    <string name="error_message_unknown_error">Неизвестная ошибка</string>
 </resources>

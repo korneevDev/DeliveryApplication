@@ -8,8 +8,8 @@ import github.mik0war.deliveryapp.feature.getListData.dish.tags.domain.TagIntera
 import github.mik0war.entity.UIEntity
 import github.mik0war.entity.dataModel.tag.Tag
 import github.mik0war.entity.dataModel.tag.TagState
-import github.mik0war.recycler_list.core.presentation.GetList
-import github.mik0war.recycler_list.core.presentation.ObserveLiveData
+import github.mik0war.recycler_list.presentation.GetList
+import github.mik0war.recycler_list.presentation.ObserveLiveData
 import javax.inject.Inject
 
 interface TagsViewModel<T>: ObserveLiveData<List<Tag>>,

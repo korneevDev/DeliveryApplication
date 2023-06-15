@@ -9,7 +9,7 @@ import github.mik0war.deliveryapp.R
 import github.mik0war.entity.CustomTextView
 import github.mik0war.entity.StringResourceProvider
 import github.mik0war.entity.dataModel.dish.DishUIModel
-import github.mik0war.recycler_list.core.presentation.ImageLoader
+import github.mik0war.recycler_list.presentation.ImageLoader
 
 interface DishDialogConfigurator {
     fun configureDialog(

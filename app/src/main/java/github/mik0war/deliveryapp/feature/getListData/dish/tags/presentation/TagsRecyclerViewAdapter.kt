@@ -10,7 +10,7 @@ import github.mik0war.entity.ColorResourceProvider
 import github.mik0war.entity.CustomTextView
 import github.mik0war.entity.dataModel.tag.Tag
 import github.mik0war.entity.dataModel.tag.TagState
-import github.mik0war.recycler_list.core.presentation.GetList
+import github.mik0war.recycler_list.presentation.GetList
 
 class TagsRecyclerViewAdapter(
     private val getList: GetList<Tag>,

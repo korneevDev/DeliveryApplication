@@ -1,6 +1,6 @@
 package github.mik0war.deliveryapp.feature.getListData.dish.domain
 
-import github.mik0war.deliveryapp.R
+import github.mik0war.recycler_list.R
 import github.mik0war.entity.ExceptionHandler
 import github.mik0war.entity.NoConnectionException
 import github.mik0war.entity.ServiceUnavailableException

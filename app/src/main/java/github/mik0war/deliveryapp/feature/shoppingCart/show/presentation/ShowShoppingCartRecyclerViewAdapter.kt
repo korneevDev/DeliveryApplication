@@ -6,11 +6,11 @@ import github.mik0war.deliveryapp.R
 import github.mik0war.entity.CustomTextView
 import github.mik0war.entity.StringResourceProvider
 import github.mik0war.entity.dataModel.dishCounted.DishCountedUIModel
-import github.mik0war.recycler_list.core.presentation.GetList
-import github.mik0war.recycler_list.core.presentation.ImageLoader
-import github.mik0war.recycler_list.core.presentation.RecyclerViewAdapter
-import github.mik0war.recycler_list.core.presentation.TransferDataGetter
-import github.mik0war.recycler_list.core.presentation.ViewHolder
+import github.mik0war.recycler_list.presentation.GetList
+import github.mik0war.recycler_list.presentation.ImageLoader
+import github.mik0war.recycler_list.presentation.RecyclerViewAdapter
+import github.mik0war.recycler_list.presentation.TransferDataGetter
+import github.mik0war.recycler_list.presentation.ViewHolder
 
 
 class ShowShoppingCartRecyclerViewAdapter(

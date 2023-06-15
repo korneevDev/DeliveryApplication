@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import github.mik0war.deliveryapp.DeliveryApp
 import github.mik0war.deliveryapp.MainActivity
 import github.mik0war.deliveryapp.R
-import github.mik0war.deliveryapp.feature.getListData.category.presentation.CategoryListFragment.Companion.FRAGMENT_NAME_KEY
+import github.mik0war.recycler_list.R as R_listModule
 import github.mik0war.deliveryapp.feature.getListData.dish.tags.presentation.TagsRecyclerViewAdapter
 import github.mik0war.deliveryapp.feature.getListData.dish.tags.presentation.TagsViewModel
 import github.mik0war.entity.ColorResourceProvider
@@ -19,8 +19,8 @@ import github.mik0war.entity.StringResourceProvider
 import github.mik0war.entity.dataModel.dish.DishUIModel
 import github.mik0war.entity.dataModel.tag.Tag
 import github.mik0war.entity.dataModel.tag.TagState
-import github.mik0war.recycler_list.core.presentation.GetDataListViewModel
-import github.mik0war.recycler_list.core.presentation.ImageLoader
+import github.mik0war.recycler_list.presentation.GetDataListViewModel
+import github.mik0war.recycler_list.presentation.ImageLoader
 import javax.inject.Inject
 
 class DishListFragment : Fragment() {
@@ -34,21 +34,17 @@ class DishListFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View = inflater.inflate(R.layout.fragment_list_layout, container, false)
+    ): View = inflater.inflate(R_listModule.layout.fragment_list_layout, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         ((requireActivity() as MainActivity).application as DeliveryApp)
             .appComponent.dishSubComponent().create().inject(this)
         super.onViewCreated(view, savedInstanceState)
 
-        arguments?.let{
-            (requireActivity() as MainActivity)
-                .supportActionBar?.title = it.getString(FRAGMENT_NAME_KEY)
-        }
 
         (requireActivity() as MainActivity).setBottomNavigationViewItemSelected(R.id.navigation_home)
 
-        val recyclerView = view.findViewById<RecyclerView>(R.id.objectList)
+        val recyclerView = view.findViewById<RecyclerView>(R_listModule.id.objectList)
 
         val dialogConfigurator = DishDialogConfigurator.Base(
             ImageLoader.Base(), StringResourceProvider.Base(requireContext())
@@ -61,7 +57,7 @@ class DishListFragment : Fragment() {
 
         dishViewModel.getDataList()
 
-        val tagsView = view.findViewById<RecyclerView>(R.id.tagsList)
+        val tagsView = view.findViewById<RecyclerView>(R_listModule.id.tagsList)
         tagsView.visibility = View.VISIBLE
 
         tagsView.adapter = setupTagsAdapter()

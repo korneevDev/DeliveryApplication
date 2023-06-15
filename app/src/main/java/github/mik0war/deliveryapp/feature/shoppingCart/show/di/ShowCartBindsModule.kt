@@ -11,12 +11,12 @@ import github.mik0war.entity.StringResourceProvider
 import github.mik0war.entity.dataModel.dishCounted.DishCounted
 import github.mik0war.entity.dataModel.dishCounted.DishCountedDataModel
 import github.mik0war.entity.dataModel.dishCounted.DishCountedUIModel
-import github.mik0war.recycler_list.core.data.GetDataListDataSource
-import github.mik0war.recycler_list.core.data.GetDataListListRepositoryImpl
-import github.mik0war.recycler_list.core.domain.GetDataListInteractor
-import github.mik0war.recycler_list.core.domain.GetDataListRepository
-import github.mik0war.recycler_list.core.presentation.GetDataListLiveData
-import github.mik0war.recycler_list.core.presentation.GetDataListViewModel
+import github.mik0war.recycler_list.data.GetDataListDataSource
+import github.mik0war.recycler_list.data.GetDataListListRepositoryImpl
+import github.mik0war.recycler_list.domain.GetDataListInteractor
+import github.mik0war.recycler_list.domain.GetDataListRepository
+import github.mik0war.recycler_list.presentation.GetDataListLiveData
+import github.mik0war.recycler_list.presentation.GetDataListViewModel
 
 @Module
 abstract class ShowCartBindsModule {

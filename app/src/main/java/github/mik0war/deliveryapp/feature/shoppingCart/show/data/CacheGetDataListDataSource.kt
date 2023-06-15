@@ -5,7 +5,7 @@ import github.mik0war.database.DishCacheModel
 import github.mik0war.entity.DataMapper
 import github.mik0war.entity.Entity
 import github.mik0war.entity.NoCachedDishesException
-import github.mik0war.recycler_list.core.data.GetDataListDataSource
+import github.mik0war.recycler_list.data.GetDataListDataSource
 import javax.inject.Inject
 
 interface CacheGetDataListDataSource<T> :

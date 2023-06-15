@@ -1,8 +1,8 @@
 package github.mik0war.deliveryapp.data
 
 import github.mik0war.deliveryapp.core.data.DataModelMapper
-import github.mik0war.deliveryapp.feature.getListData.category.data.CategoryCloudGetDataListDataSource
-import github.mik0war.deliveryapp.feature.getListData.category.data.TestCategoryService
+import github.mik0war.category.data.CategoryCloudGetDataListDataSource
+import github.mik0war.category.data.TestCategoryService
 import github.mik0war.entity.NoConnectionException
 import github.mik0war.entity.ServiceUnavailableException
 import github.mik0war.entity.dataModel.category.CategoryDataModel
@@ -15,10 +15,11 @@ class CloudGetDataListDataSourceTest {
 
     @Test
     fun get_categories_test() = runTest {
-        val cloudDataSource = CategoryCloudGetDataListDataSource(
-            TestCategoryService(),
-            DataModelMapper(MapperToCategoryDataModel())
-        )
+        val cloudDataSource =
+            CategoryCloudGetDataListDataSource(
+                TestCategoryService(),
+                DataModelMapper(MapperToCategoryDataModel())
+            )
 
         val expected =
             listOf(

@@ -10,11 +10,12 @@ import androidx.recyclerview.widget.RecyclerView
 import github.mik0war.deliveryapp.DeliveryApp
 import github.mik0war.deliveryapp.MainActivity
 import github.mik0war.deliveryapp.R
-import github.mik0war.deliveryapp.feature.getListData.category.presentation.CategoryListFragment
+import github.mik0war.recycler_list.R as R_list
+import github.mik0war.category.presentation.CategoryListFragment
 import github.mik0war.entity.StringResourceProvider
 import github.mik0war.entity.dataModel.dishCounted.DishCountedUIModel
-import github.mik0war.recycler_list.core.presentation.GetDataListViewModel
-import github.mik0war.recycler_list.core.presentation.ImageLoader
+import github.mik0war.recycler_list.presentation.GetDataListViewModel
+import github.mik0war.recycler_list.presentation.ImageLoader
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.Job
@@ -29,7 +30,7 @@ class ShowShoppingCartFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View = inflater.inflate(R.layout.fragment_list_layout, container, false)
+    ): View = inflater.inflate(R_list.layout.fragment_list_layout, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         ((requireActivity() as MainActivity).application as DeliveryApp)
@@ -48,7 +49,7 @@ class ShowShoppingCartFragment : Fragment() {
             accessToFillViewModel { fillViewModel.clearCart() }
         }
 
-        val recyclerView = view.findViewById<RecyclerView>(R.id.objectList)
+        val recyclerView = view.findViewById<RecyclerView>(R_list.id.objectList)
 
         fillViewModel =
             ShoppingCartCommunicationViewModelFromCart(requireActivity().application as DeliveryApp)

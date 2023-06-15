@@ -19,8 +19,7 @@
         android:backgroundTint="@color/light_gray_background"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/default_missing_image" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <github.mik0war.entity.CustomTextView
         android:id="@+id/objectName"

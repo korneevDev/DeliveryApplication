@@ -67,4 +67,6 @@ dependencies {
     implementation project(':core:entity')
     implementation project(':core:recycler_list')
     implementation project(':core:database')
+
+    implementation project(':feature:category')
 }

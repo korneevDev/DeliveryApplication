@@ -5,11 +5,9 @@
     <string name="title_shopping_cart">Shopping cart</string>
     <string name="title_profile">Profile</string>
 
-    <string name="error_message_service_unavailable">Service unavailable</string>
-    <string name="error_message_no_connection">No connection</string>
-    <string name="error_message_unknown_error">Unknown error</string>
+
     <string name="reload">Reload</string>
-    <string name="descriptionCategoryImageView">Image, represents category of dishes</string>
+
     <string name="descriptionDishImageView">Image which represent dish</string>
     <string name="price_addition" translatable="false">₽</string>
     <string name="weight_measure">g</string>
