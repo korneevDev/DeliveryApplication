@@ -10,7 +10,7 @@ import github.mik0war.entity.UIEntity
 import github.mik0war.recycler_list.R
 
 abstract class RecyclerViewAdapter<T : UIEntity<T>, E, V : View>(
-    private val internetDataLiveData: GetList<T>,
+    protected val internetDataLiveData: GetList<T>,
     private val imageLoader: ImageLoader,
     private val transferDataGetter: TransferDataGetter<T, E>
 ) : RecyclerView.Adapter<ViewHolder<T, V>>() {

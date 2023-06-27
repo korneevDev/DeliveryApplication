@@ -21,6 +21,10 @@ sealed class DishCountedUIModel(
 
     override fun getUrl() = image_url
 
+    fun showCount(countView: CustomTextView){
+        countView.set(count.toString())
+    }
+
     override fun show(nameView: CustomTextView) {
         nameView.set(name)
     }
@@ -64,6 +68,7 @@ sealed class DishCountedUIModel(
             weightView.set(" $weightPrefix $weight $weightMeasure")
             countView.set(count.toString())
         }
+
     }
 
     class Error(

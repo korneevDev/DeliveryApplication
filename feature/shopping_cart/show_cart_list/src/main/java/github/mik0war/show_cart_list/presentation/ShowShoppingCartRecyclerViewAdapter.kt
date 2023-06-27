@@ -46,6 +46,18 @@ class ShowShoppingCartRecyclerViewAdapter(
             resourceProvider
         )
     }
+
+    override fun onBindViewHolder(
+        holder: ViewHolder<DishCountedUIModel, ImageButton>,
+        position: Int,
+        payloads: MutableList<Any>
+    ) {
+
+        if(payloads.isEmpty())
+            super.onBindViewHolder(holder, position)
+        else
+            (holder as ShoppingViewHolder).updateCount(internetDataLiveData.getList()[position])
+    }
 }
 
 class ShoppingViewHolder(
@@ -77,6 +89,9 @@ class ShoppingViewHolder(
             priceAddition = stringResourceProvider.getString(R_list.string.price_addition),
             weightPrefix = stringResourceProvider.getString(R_list.string.weight_prefix)
         )
+    }
 
+    fun updateCount(uiModel: DishCountedUIModel){
+        uiModel.showCount(countView)
     }
 }

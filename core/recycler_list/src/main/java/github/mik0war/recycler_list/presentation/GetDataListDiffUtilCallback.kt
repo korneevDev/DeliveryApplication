@@ -16,4 +16,8 @@ class GetDataListDiffUtilCallback<T: UIEntity<T>>(
 
     override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int)
         = oldList[oldItemPosition] == newList[newItemPosition]
+
+    override fun getChangePayload(oldItemPosition: Int, newItemPosition: Int): Any {
+        return true
+    }
 }

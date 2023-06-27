@@ -37,6 +37,7 @@ class MainActivity : AppCompatActivity(),
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         bottomNavigationView?.setupWithNavController(navController)
+
     }
 
     override fun setBottomNavigationViewItemSelected(position: Int){
