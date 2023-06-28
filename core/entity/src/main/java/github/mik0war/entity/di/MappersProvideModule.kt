@@ -3,6 +3,7 @@ package github.mik0war.entity.di
 import dagger.Module
 import dagger.Provides
 import github.mik0war.entity.dataModel.category.Category
+import github.mik0war.entity.dataModel.category.CategoryDataModel
 import github.mik0war.entity.dataModel.category.CategoryUIModel
 import github.mik0war.entity.dataModel.dish.Dish
 import github.mik0war.entity.dataModel.dish.DishDataModel
@@ -21,24 +22,37 @@ class MappersProvideModule {
 
     @Singleton
     @Provides
+    fun provideMapperToCategoryDataModel(): MapperTo<CategoryDataModel> =
+        object : CategoryMapperTo<CategoryDataModel> {
+            override fun map(id: Int, name: String, imageUrl: String) =
+                CategoryDataModel(id, name, imageUrl)
+
+            override fun mapError(name: String): CategoryDataModel = throw IllegalStateException()
+        }
+    @Singleton
+    @Provides
     fun provideMapperToCategory(): MapperTo<Category> =
         object : CategoryMapperTo<Category> {
-        override fun map(id: Int, name: String, imageUrl: String) =
+        override fun map(id: Int, name: String, imageUrl: String): Category =
             if (id == 0 && imageUrl.isEmpty())
                 Category.Error(name)
             else
                 Category.Success(id, name, imageUrl)
-    }
+
+            override fun mapError(name: String): Category = Category.Error(name)
+        }
 
     @Singleton
     @Provides
     fun provideMapperToCategoryUIModel(): MapperTo<CategoryUIModel> =
         object : CategoryMapperTo<CategoryUIModel> {
-            override fun map(id: Int, name: String, imageUrl: String) =
+            override fun map(id: Int, name: String, imageUrl: String): CategoryUIModel =
                 if (id == 0 && imageUrl.isEmpty())
                     CategoryUIModel.Error(name)
                 else
                     CategoryUIModel.Success(id, name, imageUrl)
+
+            override fun mapError(name: String): CategoryUIModel = CategoryUIModel.Error(name)
         }
 
     @Singleton
@@ -55,6 +69,8 @@ class MappersProvideModule {
                 image_url: String,
                 tags: List<String>
             ) = DishDataModel(id, name, price, weight, description, image_url, tags)
+
+            override fun mapError(name: String): DishDataModel = throw IllegalStateException()
         }
 
     @Singleton
@@ -77,7 +93,9 @@ class MappersProvideModule {
                 Dish.Error(name)
             else
                 Dish.Success(id, name, price, weight, description, image_url, tags)
-    }
+
+            override fun mapError(name: String): Dish = Dish.Error(name)
+        }
 
     @Singleton
     @Provides
@@ -99,6 +117,8 @@ class MappersProvideModule {
                     DishUIModel.Error(name)
                 else
                     DishUIModel.Success(id, name, price, weight, description, image_url, tags)
+
+            override fun mapError(name: String): DishUIModel = DishUIModel.Error(name)
         }
 
     @Singleton
@@ -116,6 +136,8 @@ class MappersProvideModule {
                 tags: List<String>,
                 count: Int
             ) = DishCountedDataModel(id, name, price, weight, description, image_url, tags, count)
+
+            override fun mapError(name: String): DishCountedDataModel = throw IllegalStateException()
         }
 
     @Singleton
@@ -139,6 +161,8 @@ class MappersProvideModule {
                     DishCounted.Error(name)
                 else
                     DishCounted.Success(id, name, price, weight, description, image_url, tags, count)
+
+            override fun mapError(name: String): DishCounted = DishCounted.Error(name)
         }
 
     @Singleton
@@ -162,5 +186,7 @@ class MappersProvideModule {
             DishCountedUIModel.Error(name)
             else
             DishCountedUIModel.Success(id, name, price, weight, description, image_url, tags, count)
+
+            override fun mapError(name: String): DishCountedUIModel = DishCountedUIModel.Error(name)
         }
 }

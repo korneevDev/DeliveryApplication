@@ -1,16 +1,13 @@
 package github.mik0war.entity.dataModel.category
 
-sealed class Category(
-    id: Int = 0,
-    name: String,
-    imageUrl: String = ""
-) : CategoryEntity(id, name, imageUrl) {
+import github.mik0war.entity.Entity
+
+sealed interface Category : Entity {
     class Success(
         id: Int,
         name: String,
         imageUrl: String
-    ) : Category(id, name, imageUrl){
-    }
+    ) : Category, CategoryEntity.Success(id, name, imageUrl)
 
-    class Error(message: String): Category(name=message)
+    class Error(message: String): Category, CategoryEntity.Error(message)
 }

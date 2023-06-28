@@ -4,5 +4,4 @@ class CategoryDataModel(
     id: Int,
     name: String,
     imageUrl: String
-) : CategoryEntity(id, name, imageUrl) {
-}
+) : CategoryEntity.Success(id, name, imageUrl)
