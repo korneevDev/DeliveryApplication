@@ -54,6 +54,8 @@ class FillCartProvidesModule {
                 image_url,
                 tags
             )
+
+            override fun mapError(name: String): DishCacheModel = throw IllegalStateException()
         }
 
     @Provides
@@ -78,5 +80,7 @@ class FillCartProvidesModule {
                 tags
             )
                 .also { it.count = count }
+
+            override fun mapError(name: String): DishCacheModel = throw IllegalStateException()
         }
 }

@@ -13,8 +13,9 @@ abstract class DishCountedEntity(
     image_url: String,
     tags: List<String>,
     protected val count: Int
-) : DishEntity(id, name, price, weight, description, image_url, tags) {
+) : DishEntity.Success(id, name, price, weight, description, image_url, tags) {
 
+    @Suppress("UNCHECKED_CAST")
     override fun <S : MapperTo<R>, R> map(mapper: S) =
         (mapper as DishCountedMapperTo<R>)
             .map(id, name, price, weight, description, image_url, tags, count)

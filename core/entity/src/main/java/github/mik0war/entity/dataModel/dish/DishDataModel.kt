@@ -8,4 +8,4 @@ class DishDataModel(
     description: String,
     image_url: String,
     tags: List<String>
-) : DishEntity(id, name, price, weight, description, image_url, tags)
+) : DishEntity.Success(id, name, price, weight, description, image_url, tags)

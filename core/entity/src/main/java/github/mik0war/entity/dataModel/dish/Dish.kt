@@ -1,14 +1,6 @@
 package github.mik0war.entity.dataModel.dish
 
-sealed class Dish(
-    id: Int = 0,
-    name: String,
-    price: Int = 0,
-    weight: Int = 0,
-    description: String = "",
-    image_url: String = "",
-    tags: List<String> = emptyList()
-) : DishEntity(id, name, price, weight, description, image_url, tags) {
+sealed interface Dish : DishEntity{
 
     class Success(
         id: Int,
@@ -18,7 +10,7 @@ sealed class Dish(
         description: String,
         image_url: String,
         tags: List<String>
-    ) : Dish(id, name, price, weight, description, image_url, tags)
+    ) : Dish, DishEntity.Success(id, name, price, weight, description, image_url, tags)
 
-    class Error(message: String): Dish(name=message)
+    class Error(message: String): Dish, DishEntity.Error(message)
 }
