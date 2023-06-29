@@ -56,7 +56,8 @@ class ShowShoppingCartRecyclerViewAdapter(
         if(payloads.isEmpty())
             super.onBindViewHolder(holder, position)
         else
-            (holder as ShoppingViewHolder).updateCount(internetDataLiveData.getList()[position])
+            (holder as ShoppingViewHolder).updateCount(internetDataLiveData.getList()[position]
+                    as DishCountedUIModel.Success)
     }
 }
 
@@ -83,7 +84,7 @@ class ShoppingViewHolder(
         super.bind(uiModel)
         setOnObjectClickListener(secondButton, uiModel)
 
-        uiModel.show(
+        (uiModel as DishCountedUIModel.Success).show(
             nameView, priceView, weightView, countView,
             weightMeasure = stringResourceProvider.getString(R_list.string.weight_measure),
             priceAddition = stringResourceProvider.getString(R_list.string.price_addition),
@@ -91,7 +92,7 @@ class ShoppingViewHolder(
         )
     }
 
-    fun updateCount(uiModel: DishCountedUIModel){
+    fun updateCount(uiModel: DishCountedUIModel.Success){
         uiModel.showCount(countView)
     }
 }

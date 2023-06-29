@@ -83,7 +83,10 @@ class ShowShoppingCartFragment : Fragment() {
         showCartViewModel.observe(this) { dishCountedUIModelList ->
             var totalPrice = 0
             dishCountedUIModelList.forEach {
-                totalPrice += it.getTotalPrice()
+                if (it is DishCountedUIModel.Success)
+                    totalPrice += it.getTotalPrice()
+                else
+                    applyButton.visibility = View.INVISIBLE
             }
 
             applyButton.text = if (totalPrice == 0)

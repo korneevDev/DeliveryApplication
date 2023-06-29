@@ -3,42 +3,8 @@ package github.mik0war.entity.dataModel.dishCounted
 import github.mik0war.entity.CustomTextView
 import github.mik0war.entity.UIEntity
 
-sealed class DishCountedUIModel(
-    id: Int = 0,
-    name: String,
-    price: Int = 0,
-    weight: Int = 0,
-    description: String = "",
-    image_url: String = "",
-    tags: List<String> = emptyList(),
-    count: Int = 0
-) : DishCountedEntity(id, name, price, weight, description, image_url, tags, count),
+sealed interface DishCountedUIModel : DishCountedEntity,
     UIEntity<DishCountedUIModel> {
-    override fun equalsId(other: DishCountedUIModel) = false
-
-    fun getTotalPrice() = price * count
-    override fun getTagsList(): List<String> = tags
-
-    override fun getUrl() = image_url
-
-    fun showCount(countView: CustomTextView){
-        countView.set(count.toString())
-    }
-
-    override fun show(nameView: CustomTextView) {
-        nameView.set(name)
-    }
-
-    open fun show(nameView: CustomTextView,
-                  priceView: CustomTextView,
-                  weightView: CustomTextView,
-                  countView: CustomTextView,
-                  priceAddition: String,
-                  weightPrefix: String,
-                  weightMeasure: String,
-    ): Unit = throw IllegalStateException()
-
-    override fun getCurrentName(): String = name
 
     class Success(
         id: Int,
@@ -49,12 +15,13 @@ sealed class DishCountedUIModel(
         image_url: String,
         tags: List<String>,
         count: Int
-    ) : DishCountedUIModel(id, name, price, weight, description, image_url, tags, count){
+    ) : DishCountedUIModel,
+        DishCountedEntity.Success(id, name, price, weight, description, image_url, tags, count){
 
         override fun equalsId(other: DishCountedUIModel)
                 = other is Success && other.id == this.id
 
-        override fun show(
+        fun show(
             nameView: CustomTextView,
             priceView: CustomTextView,
             weightView: CustomTextView,
@@ -69,11 +36,34 @@ sealed class DishCountedUIModel(
             countView.set(count.toString())
         }
 
+        fun showCount(countView: CustomTextView){
+            countView.set(count.toString())
+        }
+
+        override fun show(nameView: CustomTextView) {
+            nameView.set(name)
+        }
+
+        override fun getCurrentName(): String = name
+
+        fun getTotalPrice() = price * count
+        override fun getTagsList(): List<String> = tags
+
+        override fun getUrl() = image_url
+
     }
 
     class Error(
         failureMessage: String
-    ): DishCountedUIModel(name=failureMessage) {
+    ): DishCountedUIModel, DishCountedEntity.Error(failureMessage) {
         override fun getUrl(): String = throw IllegalStateException()
+        override fun equalsId(other: DishCountedUIModel) = false
+
+        override fun getCurrentName(): String = errorMessage
+        override fun getTagsList(): List<String> = emptyList()
+
+        override fun show(nameView: CustomTextView) {
+            nameView.set(errorMessage)
+        }
     }
 }

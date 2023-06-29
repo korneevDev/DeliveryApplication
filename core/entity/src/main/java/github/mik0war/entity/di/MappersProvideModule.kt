@@ -154,13 +154,8 @@ class MappersProvideModule {
                 image_url: String,
                 tags: List<String>,
                 count: Int
-            ) =
-                if (id == 0 && price == 0 && weight == 0 && description.isEmpty() &&
-                    image_url.isEmpty() && tags.isEmpty()
-                )
-                    DishCounted.Error(name)
-                else
-                    DishCounted.Success(id, name, price, weight, description, image_url, tags, count)
+            ): DishCounted =
+                DishCounted.Success(id, name, price, weight, description, image_url, tags, count)
 
             override fun mapError(name: String): DishCounted = DishCounted.Error(name)
         }
@@ -179,13 +174,8 @@ class MappersProvideModule {
                 image_url: String,
                 tags: List<String>,
                 count: Int
-            ) =
-            if (price == 0 || weight == 0 || description.isEmpty() ||
-            image_url.isEmpty()
-            )
-            DishCountedUIModel.Error(name)
-            else
-            DishCountedUIModel.Success(id, name, price, weight, description, image_url, tags, count)
+            ) : DishCountedUIModel =
+                DishCountedUIModel.Success(id, name, price, weight, description, image_url, tags, count)
 
             override fun mapError(name: String): DishCountedUIModel = DishCountedUIModel.Error(name)
         }

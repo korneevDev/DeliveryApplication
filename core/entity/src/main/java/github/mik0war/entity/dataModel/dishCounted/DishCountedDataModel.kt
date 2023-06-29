@@ -9,4 +9,4 @@ class DishCountedDataModel(
     image_url: String,
     tags: List<String>,
     count: Int
-) : DishCountedEntity(id, name, price, weight, description, image_url, tags, count)
+) : DishCountedEntity.Success(id, name, price, weight, description, image_url, tags, count)
